@@ -6,6 +6,47 @@ from .base_scraper import BaseScraper, PriceResult
 SESSION_FILE   = Path("data/ica_session.json")
 FALLBACK_STORE = "https://handlaprivatkund.ica.se/stores/1003408"
 
+# ICA-specifika sökord för produkter som är svåra att hitta
+ICA_QUERIES = {
+    "kycklingfile":       "kycklingfilé",
+    "kycklingkebab":     "kycklingkebab",
+    "kycklingleårfile":  "kycklinglårfilé",
+    "kycklinginnerfile": "kycklinginnerfilé",
+    "mjolk":             "standardmjölk",
+    "smor":              "smör 500g",
+    "agg":               "ägg frigående",
+    "grekisk_yoghurt":   "grekisk yoghurt",
+    "yoghurt":           "yoghurt naturell",
+    "yoghurt_vanilj":    "yoghurt vanilj",
+    "matgradde":         "matgrädde",
+    "vispgradde":        "vispgrädde",
+    "gradde":            "grädde",
+    "graddfil":          "gräddfil",
+    "avokado":           "avokado",
+    "banan":             "banan eko",
+    "citron":            "citron",
+    "tomat_baby":        "tomat babyplommon",
+    "gurka":             "gurka",
+    "paprika":           "paprika mix",
+    "isbergssallad":     "isbergssallad",
+    "zucchini":          "zucchini",
+    "potatis":           "potatis fast",
+    "gul_lok":           "lök gul",
+    "rod_lok":           "lök röd",
+    "majskolv":          "majskolv",
+    "blojor":            "blöjor touch",
+    "nan_pro":           "nan pro",
+    "fruktmums":         "fruktmums",
+    "fruktgrot":         "fruktgröt",
+    "pasta":             "penne rigate",
+    "hamburgerbrod":     "hamburgerbröd",
+    "polarvete":         "polarbröd vete",
+    "lingongrova":       "lingongrova",
+    "diskmedel":         "diskmedel",
+    "hushallspapper":    "hushållspapper",
+    "toapapper":         "toapapper",
+}
+
 
 class ICAScraper(BaseScraper):
 
@@ -14,7 +55,6 @@ class ICAScraper(BaseScraper):
         self._pw      = None
         self._browser = None
         self._ctx     = None
-        self._page    = None
         self._ready   = False
 
     def _session_exists(self) -> bool:
@@ -40,14 +80,7 @@ class ICAScraper(BaseScraper):
             locale="sv-SE",
             storage_state=session,
         )
-        self._page = self._ctx.new_page()
-        try:
-            # Gå till butikssidan och vänta på att sökfältet syns
-            self._page.goto(self._store_url(), timeout=25000, wait_until="networkidle")
-            self._page.wait_for_selector('input[placeholder="Sök produkt"]', timeout=10000)
-            self._ready = True
-        except Exception as e:
-            print(f"ICA start fel: {e}")
+        self._ready = True
 
     def stop(self):
         try:
@@ -60,14 +93,15 @@ class ICAScraper(BaseScraper):
         self._browser = None
         self._pw      = None
         self._ctx     = None
-        self._page    = None
         self._ready   = False
 
     def search(self, query: str) -> list[dict]:
         self._start()
-        if not self._ready or not self._page:
+        if not self._ready:
             return []
 
+        # Ny sida per sökning för att undvika problem med återanvändning
+        page = self._ctx.new_page()
         products = []
 
         def on_resp(r):
@@ -76,7 +110,6 @@ class ICAScraper(BaseScraper):
                     try:
                         body = r.json()
                         for g in body.get("productGroups", []):
-                            # v6 API använder decoratedProducts
                             for dp in g.get("decoratedProducts", []):
                                 prod = dp.get("product", dp)
                                 if prod.get("name"):
@@ -84,30 +117,47 @@ class ICAScraper(BaseScraper):
                     except Exception:
                         pass
 
-        self._page.on("response", on_resp)
+        page.on("response", on_resp)
         try:
-            search_input = self._page.locator('input[placeholder="Sök produkt"]').first
+            page.goto(self._store_url(), timeout=25000, wait_until="networkidle")
+            page.wait_for_selector('input[placeholder="Sök produkt"]', timeout=10000)
+            search_input = page.locator('input[placeholder="Sök produkt"]').first
             search_input.click()
-            self._page.keyboard.press("Control+A")
-            self._page.keyboard.press("Backspace")
             search_input.type(query, delay=50)
-            self._page.keyboard.press("Enter")
-            self._page.wait_for_timeout(5000)
+            page.keyboard.press("Enter")
+            page.wait_for_timeout(5000)
         except Exception as e:
             print(f"ICA sökfel: {e}")
         finally:
-            self._page.remove_listener("response", on_resp)
+            page.close()
 
         return products
+
+    def _best_match(self, results: list[dict], query: str) -> dict | None:
+        """Väljer produkten vars namn bäst matchar sökordet."""
+        query_words = set(query.lower().split())
+        best, best_score = None, -1
+        for prod in results:
+            name = (prod.get("name") or "").lower()
+            score = sum(1 for w in query_words if w in name)
+            if score > best_score:
+                best_score = score
+                best = prod
+        return best if best_score > 0 else (results[0] if results else None)
 
     def get_price(self, product_id: str, product_name: str) -> PriceResult | None:
         if not self._session_exists():
             return None
-        results = self.search(product_name)
+
+        query   = ICA_QUERIES.get(product_id, product_name)
+        results = self.search(query)
         if not results:
             return None
 
-        product   = results[0]
+        product   = self._best_match(results, query)
+        if not product:
+            return None
+
         price_obj = product.get("price", {})
         price     = float(price_obj.get("amount", 0)) if isinstance(price_obj, dict) else None
         if not price:
