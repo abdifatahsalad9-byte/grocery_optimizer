@@ -37,16 +37,28 @@ def save_cache(prices: dict):
 def fetch_prices(stores: dict, products_data: dict) -> dict:
     """Hämtar priser från alla butiker och sparar i cache."""
     prices = {}
+    all_products = [
+        p for prods in products_data["categories"].values() for p in prods
+    ]
+
     for store_key, scraper in stores.items():
+        print(f"Hämtar priser: {store_key}...")
         prices[store_key] = {}
-        for products in products_data["categories"].values():
-            for product in products:
+        for product in all_products:
+            try:
                 result = scraper.get_price(product["id"], product["name"])
                 if result:
                     prices[store_key][product["id"]] = {
                         "price": result.price,
                         "offer": result.offer,
                     }
+            except Exception:
+                pass
+
+        # Stäng Playwright-scrapers efter varje butik
+        if hasattr(scraper, "stop"):
+            scraper.stop()
+
     save_cache(prices)
     return prices
 

@@ -8,6 +8,7 @@ import pandas as pd
 from scraper.mock_scraper import MockScraper
 from scraper.willys_scraper import WillysScraper
 from scraper.hemkop_scraper import HemkopScraper
+from scraper.coop_scraper import CoopScraper
 from scraper.price_cache import fetch_prices, load_cache, last_updated_text
 
 
@@ -26,6 +27,7 @@ STORES_FILE   = DATA_DIR / "stores.json"
 REAL_SCRAPERS = {
     "willys": WillysScraper(),
     "hemkop": HemkopScraper(),
+    "coop":   CoopScraper(),
 }
 
 def load_stores() -> dict:

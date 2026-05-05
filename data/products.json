@@ -711,6 +711,13 @@
         "emoji": "🧻",
         "unit": "förp",
         "image": "static/images/vatservetter.jpg"
+      },
+      {
+        "id": "myrspray",
+        "name": "myrspray",
+        "emoji": "🍗",
+        "unit": "L",
+        "image": "static/images/myrspray.jpg"
       }
     ],
     "Godis & Glass": [
