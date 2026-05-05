@@ -36,14 +36,12 @@ def main():
 
         input("Logga in och välj butik i webbläsaren, tryck sedan Enter här... ")
 
-        # Spara session
+        # Spara session + butiks-URL
         storage = ctx.storage_state()
+        storage["store_url"] = page.url  # sparar vilken butik som valts
         SESSION_FILE.parent.mkdir(exist_ok=True)
         SESSION_FILE.write_text(json.dumps(storage, ensure_ascii=False, indent=2))
-
-        # Spara också butiks-URL
-        current_url = page.url
-        store_url = current_url
+        store_url = page.url
 
         browser.close()
 
