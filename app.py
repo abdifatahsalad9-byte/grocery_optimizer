@@ -1,3 +1,4 @@
+import base64
 import json
 from pathlib import Path
 
@@ -6,6 +7,13 @@ import pandas as pd
 
 from scraper.mock_scraper import MockScraper
 from scraper.price_cache import fetch_prices, load_cache, last_updated_text
+
+
+def img_b64(path: str) -> str | None:
+    p = Path(path)
+    if not p.exists():
+        return None
+    return base64.b64encode(p.read_bytes()).decode()
 
 # ── Konfiguration ──────────────────────────────────────────────────────────────
 DATA_DIR = Path(__file__).parent / "data"
@@ -112,40 +120,35 @@ st.markdown("""
   .product-card {
     background: #fff;
     border: 1px solid #e8e8e8;
-    border-radius: 12px;
-    padding: 12px 10px 10px 10px;
-    margin-bottom: 12px;
+    border-radius: 14px;
+    padding: 10px 8px 8px 8px;
+    margin-bottom: 4px;
     text-align: center;
     position: relative;
-    min-height: 260px;
+    transition: box-shadow 0.2s;
   }
   .product-card:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-    border-color: #ccc;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    border-color: #bbb;
   }
   .product-price {
     color: #e3000b;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 800;
-    margin: 6px 0 2px 0;
-  }
-  .product-unit {
-    color: #888;
-    font-size: 0.72rem;
-    margin-bottom: 2px;
+    margin: 4px 0 2px 0;
   }
   .product-name {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     color: #222;
     font-weight: 500;
     line-height: 1.3;
-    margin-bottom: 6px;
-    min-height: 34px;
+    margin: 4px 0;
+    min-height: 32px;
   }
   .in-cart-badge {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 7px;
+    right: 7px;
     background: #e3000b;
     color: white;
     border-radius: 50%;
@@ -156,6 +159,7 @@ st.markdown("""
     display: flex;
     align-items: center;
     justify-content: center;
+    line-height: 1;
   }
 
   /* ── Korg ── */
@@ -299,24 +303,27 @@ for category, products in products_data["categories"].items():
         price    = willys_prices.get(pid, {}).get("price")
         img_path = product.get("image")
 
-        with cols[i % 6]:
-            # Kort-HTML
-            badge = f'<div class="in-cart-badge">{qty}</div>' if in_cart else ""
-            price_html = f'<div class="product-price">{price:.2f} kr</div>' if price else ""
+        # Bild som base64 eller emoji
+        b64 = img_b64(img_path) if img_path else None
+        if b64:
+            img_html = f'<img src="data:image/jpeg;base64,{b64}" style="width:100%;height:120px;object-fit:contain;margin:6px 0"/>'
+        else:
+            img_html = f'<div style="font-size:2.5rem;margin:10px 0">{product["emoji"]}</div>'
 
+        badge      = f'<div class="in-cart-badge">{qty}</div>' if in_cart else ""
+        price_html = f'<div class="product-price">{price:.2f} <span style="font-size:0.8rem;font-weight:500">kr/st</span></div>' if price else ""
+
+        with cols[i % 6]:
             st.markdown(f"""
             <div class="product-card">
               {badge}
-              <div class="product-name">{product['emoji']} {product['name']}</div>
+              {img_html}
+              <div class="product-name">{product['name']}</div>
               {price_html}
             </div>
             """, unsafe_allow_html=True)
 
-            # Bild
-            if img_path and Path(img_path).exists():
-                st.image(img_path, use_container_width=True)
-
-            # +/− knappar
+            # Knappar under kortet
             if in_cart:
                 c1, c2, c3 = st.columns([1, 1, 1])
                 with c1:

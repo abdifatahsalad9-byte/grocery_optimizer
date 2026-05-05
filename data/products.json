@@ -46,6 +46,20 @@
         "image": "static/images/mjolk.jpg"
       },
       {
+        "id": "mjolk_langre_hallbarhet_3",
+        "name": "Mjölk Längre Hållbarhet 3%",
+        "emoji": "🍗",
+        "unit": "förp",
+        "image": "static/images/mjolk_langre_hallbarhet_3.jpg"
+      },
+      {
+        "id": "yoghurt_vanilj",
+        "name": "Mild Yoghurt Vanilj",
+        "emoji": "🍶",
+        "unit": "förp",
+        "image": "static/images/yoghurt_vanilj.jpg"
+      },
+      {
         "id": "smor",
         "name": "Smör NS 500g",
         "emoji": "🧈",
@@ -57,13 +71,6 @@
         "emoji": "🧈",
         "unit": "förp",
         "image": "static/images/normalsalt_smor.jpg"
-      },
-      {
-        "id": "yoghurt_vanilj",
-        "name": "Mild Yoghurt Vanilj",
-        "emoji": "🍶",
-        "unit": "förp",
-        "image": "static/images/yoghurt_vanilj.jpg"
       },
       {
         "id": "agg",
@@ -160,13 +167,6 @@
         "emoji": "🍏",
         "unit": "L",
         "image": "static/images/appeljuice.jpg"
-      },
-      {
-        "id": "mjolk_langre_hallbarhet_3",
-        "name": "Mjölk Längre Hållbarhet 3%",
-        "emoji": "🍗",
-        "unit": "förp",
-        "image": "static/images/mjolk_langre_hallbarhet_3.jpg"
       }
     ],
     "Frukt & Grönt": [
