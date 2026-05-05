@@ -215,6 +215,12 @@ st.markdown("""
     margin-bottom: 10px;
   }
 
+  /* Tvinga 2 kolumner på alla skärmstorlekar */
+  div[data-testid="stHorizontalBlock"] {
+    flex-wrap: nowrap !important;
+    gap: 8px;
+  }
+
   /* Knappar */
   div[data-testid="stButton"] button {
     border-radius: 50px !important;
@@ -320,51 +326,53 @@ willys_prices = st.session_state.prices.get("🟡 Willys", {})
 for category, products in products_data["categories"].items():
     st.markdown(f'<div class="cat-header">{category}</div>', unsafe_allow_html=True)
 
-    cols = st.columns(2)
-    for i, product in enumerate(products):
-        pid      = product["id"]
-        in_cart  = pid in st.session_state.cart
-        qty      = st.session_state.cart.get(pid, {}).get("qty", 0)
-        price    = willys_prices.get(pid, {}).get("price")
-        img_path = product.get("image")
+    # Dela upp i par — nytt st.columns(2) per par så att 2 kort alltid är bredvid varandra
+    for row_start in range(0, len(products), 2):
+        pair = products[row_start : row_start + 2]
+        cols = st.columns(2)
 
-        # Bild som base64 eller emoji
-        b64 = img_b64(img_path) if img_path else None
-        if b64:
-            img_html = f'<div class="product-img-wrap"><img src="data:image/jpeg;base64,{b64}"/></div>'
-        else:
-            img_html = f'<div class="product-img-wrap"><span style="font-size:2.5rem">{product["emoji"]}</span></div>'
+        for j, product in enumerate(pair):
+            pid      = product["id"]
+            in_cart  = pid in st.session_state.cart
+            qty      = st.session_state.cart.get(pid, {}).get("qty", 0)
+            price    = willys_prices.get(pid, {}).get("price")
+            img_path = product.get("image")
 
-        badge      = f'<div class="in-cart-badge">{qty}</div>' if in_cart else ""
-        price_html = f'<div class="product-price">{price:.2f} <span style="font-size:0.75rem;font-weight:500">kr</span></div>' if price else '<div class="product-price" style="color:#aaa">—</div>'
-
-        with cols[i % 2]:
-            st.markdown(f"""
-            <div class="product-card">
-              {badge}
-              {img_html}
-              <div class="product-name">{product['name']}</div>
-              {price_html}
-            </div>
-            """, unsafe_allow_html=True)
-
-            # Knappar under kortet
-            if in_cart:
-                c1, c2, c3 = st.columns([1, 1, 1])
-                with c1:
-                    if st.button("−", key=f"m_{pid}", use_container_width=True):
-                        change_qty(pid, -1)
-                        st.rerun()
-                with c2:
-                    st.markdown(f"<div style='text-align:center;padding-top:4px;font-weight:700'>{qty}</div>", unsafe_allow_html=True)
-                with c3:
-                    if st.button("＋", key=f"p_{pid}", use_container_width=True):
-                        change_qty(pid, 1)
-                        st.rerun()
+            b64 = img_b64(img_path) if img_path else None
+            if b64:
+                img_html = f'<div class="product-img-wrap"><img src="data:image/jpeg;base64,{b64}"/></div>'
             else:
-                if st.button("＋ Lägg till", key=f"btn_{pid}", use_container_width=True):
-                    add_to_cart(product)
-                    st.rerun()
+                img_html = f'<div class="product-img-wrap"><span style="font-size:2.5rem">{product["emoji"]}</span></div>'
+
+            badge      = f'<div class="in-cart-badge">{qty}</div>' if in_cart else ""
+            price_html = f'<div class="product-price">{price:.2f} <span style="font-size:0.75rem;font-weight:500">kr</span></div>' if price else '<div class="product-price" style="color:#aaa">—</div>'
+
+            with cols[j]:
+                st.markdown(f"""
+                <div class="product-card">
+                  {badge}
+                  {img_html}
+                  <div class="product-name">{product['name']}</div>
+                  {price_html}
+                </div>
+                """, unsafe_allow_html=True)
+
+                if in_cart:
+                    c1, c2, c3 = st.columns([1, 1, 1])
+                    with c1:
+                        if st.button("−", key=f"m_{pid}", use_container_width=True):
+                            change_qty(pid, -1)
+                            st.rerun()
+                    with c2:
+                        st.markdown(f"<div style='text-align:center;padding-top:4px;font-weight:700'>{qty}</div>", unsafe_allow_html=True)
+                    with c3:
+                        if st.button("＋", key=f"p_{pid}", use_container_width=True):
+                            change_qty(pid, 1)
+                            st.rerun()
+                else:
+                    if st.button("＋ Lägg till", key=f"btn_{pid}", use_container_width=True):
+                        add_to_cart(product)
+                        st.rerun()
 
 # ── Prisjämförelse ─────────────────────────────────────────────────────────────
 if st.session_state.get("show_comparison") and st.session_state.cart:
