@@ -50,12 +50,48 @@ def load_products() -> dict:
 STORES = load_stores()
 
 
+# Butiker som är snabba (direkt API) vs långsamma (Playwright)
+FAST_STORES = {"willys", "hemkop"}
+SLOW_STORES = {"ica", "coop"}
+
 def get_prices(force_refresh: bool = False) -> dict:
     if not force_refresh:
         cached = load_cache()
         if cached:
             return cached
-    return fetch_prices(STORES, load_products())
+    # Hämta bara snabba butiker i bulk — långsamma hämtas per korg
+    fast_stores = {k: v for k, v in STORES.items()
+                   if any(s in k.lower() for s in FAST_STORES)}
+    mock_stores  = {k: v for k, v in STORES.items()
+                   if not any(s in k.lower() for s in FAST_STORES | SLOW_STORES)}
+    return fetch_prices({**fast_stores, **mock_stores}, load_products())
+
+
+def fetch_live_prices_for_cart(cart: dict, products_data: dict) -> dict:
+    """Hämtar live-priser från ICA/Coop bara för varorna i korgen."""
+    slow_stores = {k: v for k, v in STORES.items()
+                   if any(s in k.lower() for s in SLOW_STORES)}
+    if not slow_stores:
+        return {}
+
+    cart_products = {"categories": {"Korg": [
+        {"id": pid, "name": info["name"], "emoji": info["emoji"], "unit": "st"}
+        for pid, info in cart.items()
+    ]}}
+
+    live = {}
+    for store_key, scraper in slow_stores.items():
+        live[store_key] = {}
+        for pid, info in cart.items():
+            try:
+                result = scraper.get_price(pid, info["name"])
+                if result:
+                    live[store_key][pid] = {"price": result.price, "offer": result.offer}
+            except Exception:
+                pass
+        if hasattr(scraper, "stop"):
+            scraper.stop()
+    return live
 
 
 # ── Hjälpfunktioner ────────────────────────────────────────────────────────────
@@ -340,12 +376,19 @@ with st.sidebar:
                     st.session_state.prices = get_prices(force_refresh=True)
                 st.rerun()
 
-        st.button(
-            "📊 Jämför priser i alla butiker",
-            type="primary",
-            use_container_width=True,
-            on_click=lambda: st.session_state.update(show_comparison=True),
-        )
+        if st.button("📊 Jämför priser i alla butiker", type="primary", use_container_width=True):
+            with st.spinner("Hämtar ICA & Coop live-priser för din korg..."):
+                live = fetch_live_prices_for_cart(st.session_state.cart, products_data)
+                # Slå ihop live-priser med cachade priser
+                merged = dict(st.session_state.prices)
+                for store_key, store_prices in live.items():
+                    if store_key in merged:
+                        merged[store_key].update(store_prices)
+                    else:
+                        merged[store_key] = store_prices
+                st.session_state.live_prices = merged
+            st.session_state.show_comparison = True
+            st.rerun()
 
 # ── Huvudvy: Produktkatalog ────────────────────────────────────────────────────
 st.title("🛒 Matinköp")
@@ -408,7 +451,9 @@ if st.session_state.get("show_comparison") and st.session_state.cart:
     st.divider()
     st.header("📊 Prisjämförelse")
 
-    df, store_totals = compare_prices(st.session_state.prices)
+    # Använd live-priser om de finns, annars cachade
+    prices_to_use = st.session_state.get("live_prices", st.session_state.prices)
+    df, store_totals = compare_prices(prices_to_use)
 
     best_store  = min(store_totals, key=store_totals.get)
     worst_store = max(store_totals, key=store_totals.get)
