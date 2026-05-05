@@ -108,33 +108,61 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-  /* Produktknappar */
-  .stButton button {
+  /* ── Produktkort ── */
+  .product-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
     border-radius: 12px;
+    padding: 12px 10px 10px 10px;
+    margin-bottom: 12px;
+    text-align: center;
+    position: relative;
+    min-height: 260px;
   }
-
-  /* Korgens varurad */
-  .cart-item {
-    background: #f8f9fa;
-    border-radius: 12px;
-    padding: 10px 14px;
-    margin-bottom: 8px;
+  .product-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    border-color: #ccc;
+  }
+  .product-price {
+    color: #e3000b;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 6px 0 2px 0;
+  }
+  .product-unit {
+    color: #888;
+    font-size: 0.72rem;
+    margin-bottom: 2px;
+  }
+  .product-name {
+    font-size: 0.82rem;
+    color: #222;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 6px;
+    min-height: 34px;
+  }
+  .in-cart-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #e3000b;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 0.75rem;
+    font-weight: 700;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
+
+  /* ── Korg ── */
   .cart-item-name {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: #1a1a2e;
-  }
-  .cart-item-qty {
-    background: #e8f4fd;
-    color: #1565c0;
-    border-radius: 20px;
-    padding: 2px 10px;
-    font-weight: 700;
-    font-size: 0.85rem;
   }
   .cart-total-box {
     background: linear-gradient(135deg, #1565c0, #0d47a1);
@@ -144,24 +172,27 @@ st.markdown("""
     text-align: center;
     margin: 10px 0;
   }
-  .cart-total-label {
-    font-size: 0.8rem;
-    opacity: 0.85;
-    margin-bottom: 2px;
+  .cart-total-label { font-size: 0.8rem; opacity: 0.85; margin-bottom: 2px; }
+  .cart-total-amount { font-size: 1.6rem; font-weight: 800; }
+  .cart-empty { text-align: center; padding: 30px 10px; color: #888; }
+  .cart-empty-icon { font-size: 2.5rem; margin-bottom: 8px; }
+
+  /* ── Kategori-rubrik ── */
+  .cat-header {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111;
+    padding: 14px 0 6px 0;
+    border-bottom: 2px solid #e3000b;
+    margin-bottom: 10px;
   }
-  .cart-total-amount {
-    font-size: 1.6rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-  }
-  .cart-empty {
-    text-align: center;
-    padding: 30px 10px;
-    color: #888;
-  }
-  .cart-empty-icon {
-    font-size: 2.5rem;
-    margin-bottom: 8px;
+
+  /* Dölj Streamlit-knapparnas standardlayout inuti kort */
+  div[data-testid="stButton"] button {
+    border-radius: 50px !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    padding: 2px 0 !important;
   }
 </style>
 """, unsafe_allow_html=True)
@@ -254,25 +285,54 @@ with st.sidebar:
 
 # ── Huvudvy: Produktkatalog ────────────────────────────────────────────────────
 st.title("🛒 Matinköp")
-st.caption("Tryck på en vara för att lägga till den i korgen")
+
+willys_prices = st.session_state.prices.get("🟡 Willys", {})
 
 for category, products in products_data["categories"].items():
-    st.subheader(category)
-    cols = st.columns(5)
-    for i, product in enumerate(products):
-        in_cart = product["id"] in st.session_state.cart
-        qty     = st.session_state.cart.get(product["id"], {}).get("qty", 0)
-        label   = f"{product['emoji']} {product['name']}"
-        if in_cart:
-            label += f" ✅ ×{qty}"
+    st.markdown(f'<div class="cat-header">{category}</div>', unsafe_allow_html=True)
 
-        with cols[i % 5]:
-            image_path = product.get("image")
-            if image_path and Path(image_path).exists():
-                st.image(image_path, use_container_width=True)
-            if st.button(label, key=f"btn_{product['id']}", use_container_width=True):
-                add_to_cart(product)
-                st.rerun()
+    cols = st.columns(6)
+    for i, product in enumerate(products):
+        pid      = product["id"]
+        in_cart  = pid in st.session_state.cart
+        qty      = st.session_state.cart.get(pid, {}).get("qty", 0)
+        price    = willys_prices.get(pid, {}).get("price")
+        img_path = product.get("image")
+
+        with cols[i % 6]:
+            # Kort-HTML
+            badge = f'<div class="in-cart-badge">{qty}</div>' if in_cart else ""
+            price_html = f'<div class="product-price">{price:.2f} kr</div>' if price else ""
+
+            st.markdown(f"""
+            <div class="product-card">
+              {badge}
+              <div class="product-name">{product['emoji']} {product['name']}</div>
+              {price_html}
+            </div>
+            """, unsafe_allow_html=True)
+
+            # Bild
+            if img_path and Path(img_path).exists():
+                st.image(img_path, use_container_width=True)
+
+            # +/− knappar
+            if in_cart:
+                c1, c2, c3 = st.columns([1, 1, 1])
+                with c1:
+                    if st.button("−", key=f"m_{pid}", use_container_width=True):
+                        change_qty(pid, -1)
+                        st.rerun()
+                with c2:
+                    st.markdown(f"<div style='text-align:center;padding-top:4px;font-weight:700'>{qty}</div>", unsafe_allow_html=True)
+                with c3:
+                    if st.button("＋", key=f"p_{pid}", use_container_width=True):
+                        change_qty(pid, 1)
+                        st.rerun()
+            else:
+                if st.button("＋ Lägg till", key=f"btn_{pid}", use_container_width=True):
+                    add_to_cart(product)
+                    st.rerun()
 
 # ── Prisjämförelse ─────────────────────────────────────────────────────────────
 if st.session_state.get("show_comparison") and st.session_state.cart:

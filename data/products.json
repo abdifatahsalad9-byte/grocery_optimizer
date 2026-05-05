@@ -59,6 +59,13 @@
         "image": "static/images/normalsalt_smor.jpg"
       },
       {
+        "id": "yoghurt_vanilj",
+        "name": "Mild Yoghurt Vanilj",
+        "emoji": "🍶",
+        "unit": "förp",
+        "image": "static/images/yoghurt_vanilj.jpg"
+      },
+      {
         "id": "agg",
         "name": "Ägg M 24P Frigående",
         "emoji": "🥚",
@@ -77,13 +84,6 @@
         "emoji": "🍶",
         "unit": "förp",
         "image": "static/images/yoghurt.jpg"
-      },
-      {
-        "id": "yoghurt_vanilj",
-        "name": "Mild Yoghurt Vanilj",
-        "emoji": "🍶",
-        "unit": "förp",
-        "image": "static/images/yoghurt_vanilj.jpg"
       },
       {
         "id": "turkisk_yoghurt",
