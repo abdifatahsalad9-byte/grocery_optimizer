@@ -5,11 +5,13 @@ import streamlit as st
 import pandas as pd
 
 from scraper.mock_scraper import MockScraper
+from scraper.price_cache import fetch_prices, load_cache, last_updated_text
 
 # ── Konfiguration ──────────────────────────────────────────────────────────────
 DATA_DIR = Path(__file__).parent / "data"
 PRODUCTS_FILE = DATA_DIR / "products.json"
 STORES_FILE   = DATA_DIR / "stores.json"
+
 
 def load_stores() -> dict:
     with open(STORES_FILE, encoding="utf-8") as f:
@@ -19,18 +21,28 @@ def load_stores() -> dict:
         for s in data["stores"]
     }
 
-STORES = load_stores()
-
-# ── Hjälpfunktioner ────────────────────────────────────────────────────────────
 
 def load_products() -> dict:
     with open(PRODUCTS_FILE, encoding="utf-8") as f:
         return json.load(f)
 
 
+STORES = load_stores()
+
+
+def get_prices(force_refresh: bool = False) -> dict:
+    if not force_refresh:
+        cached = load_cache()
+        if cached:
+            return cached
+    return fetch_prices(STORES, load_products())
+
+
+# ── Hjälpfunktioner ────────────────────────────────────────────────────────────
+
 def init_cart():
     if "cart" not in st.session_state:
-        st.session_state.cart = {}  # {product_id: {"name": ..., "qty": ..., "emoji": ...}}
+        st.session_state.cart = {}
 
 
 def add_to_cart(product: dict):
@@ -56,25 +68,22 @@ def change_qty(product_id: str, delta: int):
             remove_from_cart(product_id)
 
 
-def compare_prices() -> pd.DataFrame:
-    cart_products = [
-        {"id": pid, "name": info["name"]}
-        for pid, info in st.session_state.cart.items()
-    ]
+def compare_prices(prices: dict) -> tuple[pd.DataFrame, dict]:
     rows = []
     store_totals: dict[str, float] = {name: 0.0 for name in STORES}
 
     for pid, info in st.session_state.cart.items():
         row = {"Vara": f"{info['emoji']} {info['name']}", "Antal": info["qty"]}
-        for store_name, scraper in STORES.items():
-            result = scraper.get_price(pid, info["name"])
-            if result:
-                unit_price = result.price
-                total = unit_price * info["qty"]
+        for store_name in STORES:
+            store_prices = prices.get(store_name, {})
+            if pid in store_prices:
+                unit_price = store_prices[pid]["price"]
+                offer      = store_prices[pid]["offer"]
+                total      = unit_price * info["qty"]
                 store_totals[store_name] += total
                 label = f"{unit_price:.2f} kr"
-                if result.offer:
-                    label += f"\n💥 {result.offer}"
+                if offer:
+                    label += f"\n💥 {offer}"
                 row[store_name] = label
             else:
                 row[store_name] = "—"
@@ -99,12 +108,6 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-  .product-btn button {
-    height: 80px !important;
-    font-size: 1rem !important;
-    border-radius: 12px !important;
-    width: 100% !important;
-  }
   .stButton button {
     border-radius: 10px;
   }
@@ -117,9 +120,23 @@ st.markdown("""
 init_cart()
 products_data = load_products()
 
+# Ladda priser (från cache om möjligt)
+if "prices" not in st.session_state:
+    st.session_state.prices = get_prices()
+
 # ── Sidopanel: Kundkorg ────────────────────────────────────────────────────────
 with st.sidebar:
     st.title("🛒 Din korg")
+
+    # Prisstatus + uppdateringsknapp
+    st.caption(f"🕐 {last_updated_text()}")
+    if st.button("🔄 Uppdatera priser", use_container_width=True):
+        with st.spinner("Hämtar priser från alla butiker..."):
+            st.session_state.prices = get_prices(force_refresh=True)
+        st.success("Priser uppdaterade!")
+        st.rerun()
+
+    st.divider()
 
     if not st.session_state.cart:
         st.info("Korgen är tom.\nTryck på varor till höger för att lägga till.")
@@ -168,35 +185,29 @@ if st.session_state.get("show_comparison") and st.session_state.cart:
     st.divider()
     st.header("📊 Prisjämförelse")
 
-    df, store_totals = compare_prices()
+    df, store_totals = compare_prices(st.session_state.prices)
 
-    # Visa vinnande butik
-    best_store = min(store_totals, key=store_totals.get)
+    best_store  = min(store_totals, key=store_totals.get)
     worst_store = max(store_totals, key=store_totals.get)
-    savings = store_totals[worst_store] - store_totals[best_store]
+    savings     = store_totals[worst_store] - store_totals[best_store]
 
     st.success(
         f"✅ **Handla på {best_store}** – du sparar **{savings:.2f} kr** "
         f"jämfört med {worst_store}!"
     )
 
-    col1, col2 = st.columns(2)
+    cols = st.columns(len(STORES))
     for i, (store_name, total) in enumerate(store_totals.items()):
-        target = col1 if i == 0 else col2
         is_best = store_name == best_store
-        with target:
+        with cols[i]:
             st.metric(
                 label=store_name,
                 value=f"{total:.2f} kr",
-                delta=f"{'Billigast! 🏆' if is_best else f'+{total - store_totals[best_store]:.2f} kr'}",
+                delta="Billigast! 🏆" if is_best else f"+{total - store_totals[best_store]:.2f} kr",
                 delta_color="normal" if is_best else "inverse",
             )
 
-    st.dataframe(
-        df,
-        hide_index=True,
-        use_container_width=True,
-    )
+    st.dataframe(df, hide_index=True, use_container_width=True)
 
     if st.button("❌ Stäng jämförelsen"):
         st.session_state.show_comparison = False
