@@ -126,24 +126,48 @@ st.markdown("""
     text-align: center;
     position: relative;
     transition: box-shadow 0.2s;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
   .product-card:hover {
     box-shadow: 0 4px 18px rgba(0,0,0,0.12);
     border-color: #bbb;
   }
-  .product-price {
-    color: #e3000b;
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin: 4px 0 2px 0;
+  .product-img-wrap {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .product-img-wrap img {
+    max-height: 120px;
+    max-width: 100%;
+    object-fit: contain;
   }
   .product-name {
     font-size: 0.78rem;
     color: #222;
     font-weight: 500;
     line-height: 1.3;
-    margin: 4px 0;
-    min-height: 32px;
+    margin: 6px 0 4px 0;
+    height: 36px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    flex-shrink: 0;
+  }
+  .product-price {
+    color: #e3000b;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-top: auto;
+    padding-top: 4px;
+    flex-shrink: 0;
   }
   .in-cart-badge {
     position: absolute;
@@ -306,12 +330,12 @@ for category, products in products_data["categories"].items():
         # Bild som base64 eller emoji
         b64 = img_b64(img_path) if img_path else None
         if b64:
-            img_html = f'<img src="data:image/jpeg;base64,{b64}" style="width:100%;height:120px;object-fit:contain;margin:6px 0"/>'
+            img_html = f'<div class="product-img-wrap"><img src="data:image/jpeg;base64,{b64}"/></div>'
         else:
-            img_html = f'<div style="font-size:2.5rem;margin:10px 0">{product["emoji"]}</div>'
+            img_html = f'<div class="product-img-wrap"><span style="font-size:2.5rem">{product["emoji"]}</span></div>'
 
         badge      = f'<div class="in-cart-badge">{qty}</div>' if in_cart else ""
-        price_html = f'<div class="product-price">{price:.2f} <span style="font-size:0.8rem;font-weight:500">kr/st</span></div>' if price else ""
+        price_html = f'<div class="product-price">{price:.2f} <span style="font-size:0.75rem;font-weight:500">kr</span></div>' if price else '<div class="product-price" style="color:#aaa">—</div>'
 
         with cols[i % 6]:
             st.markdown(f"""
