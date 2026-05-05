@@ -223,43 +223,6 @@ st.markdown("""
     padding: 2px 0 !important;
   }
 
-  /* ── Mobil: 2 kolumner ── */
-  @media (max-width: 768px) {
-    /* Kolumner radbryts och blir 50% breda */
-    div[data-testid="stHorizontalBlock"] {
-      flex-wrap: wrap !important;
-    }
-    div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"] {
-      width: 50% !important;
-      min-width: 50% !important;
-      flex: 0 0 50% !important;
-    }
-
-    /* Kortets höjd och bild lite mindre på mobil */
-    .product-card {
-      height: 230px !important;
-    }
-    .product-img-wrap {
-      height: 95px !important;
-    }
-    .product-img-wrap img {
-      max-height: 95px !important;
-    }
-    .product-price {
-      font-size: 1rem !important;
-    }
-    .product-name {
-      font-size: 0.72rem !important;
-    }
-
-    /* Kategorirubriken lite mindre */
-    .cat-header {
-      font-size: 1rem !important;
-    }
-
-    /* Titeln */
-    h1 { font-size: 1.4rem !important; }
-  }
 </style>
 """, unsafe_allow_html=True)
 
@@ -357,7 +320,7 @@ willys_prices = st.session_state.prices.get("🟡 Willys", {})
 for category, products in products_data["categories"].items():
     st.markdown(f'<div class="cat-header">{category}</div>', unsafe_allow_html=True)
 
-    cols = st.columns(6)
+    cols = st.columns(2)
     for i, product in enumerate(products):
         pid      = product["id"]
         in_cart  = pid in st.session_state.cart
@@ -375,7 +338,7 @@ for category, products in products_data["categories"].items():
         badge      = f'<div class="in-cart-badge">{qty}</div>' if in_cart else ""
         price_html = f'<div class="product-price">{price:.2f} <span style="font-size:0.75rem;font-weight:500">kr</span></div>' if price else '<div class="product-price" style="color:#aaa">—</div>'
 
-        with cols[i % 6]:
+        with cols[i % 2]:
             st.markdown(f"""
             <div class="product-card">
               {badge}
