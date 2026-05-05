@@ -453,7 +453,6 @@ for category, products in products_data["categories"].items():
 if st.session_state.get("show_comparison") and st.session_state.cart:
     st.divider()
     st.header("📊 Prisjämförelse")
-    st.caption("Priser utan markering = riktiga. **~** = uppskattad (butiken har inget riktigt API ännu)")
 
     # Använd live-priser om de finns, annars cachade
     prices_to_use = st.session_state.get("live_prices", st.session_state.prices)
@@ -468,16 +467,29 @@ if st.session_state.get("show_comparison") and st.session_state.cart:
         f"jämfört med {worst_store}!"
     )
 
+    # Butikskort — visa om priserna är riktiga eller uppskattade
+    real_stores = {"willys", "ica", "hemkop", "coop"}
     cols = st.columns(len(STORES))
     for i, (store_name, total) in enumerate(store_totals.items()):
-        is_best = store_name == best_store
+        is_best  = store_name == best_store
+        store_id = store_name.split()[-1].lower()
+        is_real  = any(s in store_name.lower() for s in real_stores)
+        badge    = "✅ Riktigt pris" if is_real else "~ Uppskattat pris"
         with cols[i]:
             st.metric(
-                label=store_name,
+                label=f"{store_name}\n{badge}",
                 value=f"{total:.2f} kr",
                 delta="Billigast! 🏆" if is_best else f"+{total - store_totals[best_store]:.2f} kr",
                 delta_color="normal" if is_best else "inverse",
             )
+
+    # Förklaring
+    st.markdown("""
+    <div style="margin:8px 0 12px 0;font-size:0.82rem;color:#555">
+      ✅ <b>Riktigt pris</b> = hämtat direkt från butikens hemsida idag &nbsp;|&nbsp;
+      ~ <b>Uppskattat</b> = beräknat från Willys-priset (kan vara fel)
+    </div>
+    """, unsafe_allow_html=True)
 
     st.dataframe(df, hide_index=True, use_container_width=True)
 
