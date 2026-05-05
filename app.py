@@ -111,7 +111,7 @@ st.set_page_config(
     page_title="Matinköp",
     page_icon="🛒",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="auto",
 )
 
 st.markdown("""
@@ -215,12 +215,50 @@ st.markdown("""
     margin-bottom: 10px;
   }
 
-  /* Dölj Streamlit-knapparnas standardlayout inuti kort */
+  /* Knappar */
   div[data-testid="stButton"] button {
     border-radius: 50px !important;
     font-size: 1.1rem !important;
     font-weight: 700 !important;
     padding: 2px 0 !important;
+  }
+
+  /* ── Mobil: 2 kolumner ── */
+  @media (max-width: 768px) {
+    /* Kolumner radbryts och blir 50% breda */
+    div[data-testid="stHorizontalBlock"] {
+      flex-wrap: wrap !important;
+    }
+    div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"] {
+      width: 50% !important;
+      min-width: 50% !important;
+      flex: 0 0 50% !important;
+    }
+
+    /* Kortets höjd och bild lite mindre på mobil */
+    .product-card {
+      height: 230px !important;
+    }
+    .product-img-wrap {
+      height: 95px !important;
+    }
+    .product-img-wrap img {
+      max-height: 95px !important;
+    }
+    .product-price {
+      font-size: 1rem !important;
+    }
+    .product-name {
+      font-size: 0.72rem !important;
+    }
+
+    /* Kategorirubriken lite mindre */
+    .cat-header {
+      font-size: 1rem !important;
+    }
+
+    /* Titeln */
+    h1 { font-size: 1.4rem !important; }
   }
 </style>
 """, unsafe_allow_html=True)
