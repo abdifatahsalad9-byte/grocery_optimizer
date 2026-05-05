@@ -109,12 +109,6 @@
         "image": "static/images/crunchy_yoghurt.jpg"
       },
       {
-        "id": "min_yoghurt",
-        "name": "Min Yoghurt 4P",
-        "emoji": "🍶",
-        "unit": "förp"
-      },
-      {
         "id": "matgradde",
         "name": "Matgrädde 5dl",
         "emoji": "🥛",

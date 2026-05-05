@@ -9,6 +9,7 @@ from scraper.mock_scraper import MockScraper
 from scraper.willys_scraper import WillysScraper
 from scraper.hemkop_scraper import HemkopScraper
 from scraper.coop_scraper import CoopScraper
+from scraper.ica_scraper import ICAScraper
 from scraper.price_cache import fetch_prices, load_cache, last_updated_text
 
 
@@ -28,6 +29,7 @@ REAL_SCRAPERS = {
     "willys": WillysScraper(),
     "hemkop": HemkopScraper(),
     "coop":   CoopScraper(),
+    "ica":    ICAScraper(),
 }
 
 def load_stores() -> dict:
