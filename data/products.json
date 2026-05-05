@@ -1,124 +1,738 @@
 {
   "categories": {
     "Kött & Fisk": [
-      {"id": "kycklingfile",       "name": "Kycklingfilé 1kg",          "emoji": "🍗", "unit": "kg"},
-      {"id": "kycklingkebab",      "name": "Kycklingkebab 700g",        "emoji": "🍗", "unit": "förp"},
-      {"id": "kycklingleårfile",   "name": "Kycklinglårfilé",           "emoji": "🍗", "unit": "förp"},
-      {"id": "kycklinginnerfile",  "name": "Kycklinginnerfilé",         "emoji": "🍗", "unit": "förp"}
+      {
+        "id": "kycklingfile",
+        "name": "Kycklingfilé 1kg",
+        "emoji": "🍗",
+        "unit": "kg",
+        "image": "static/images/kycklingfile.jpg"
+      },
+      {
+        "id": "kycklingkebab",
+        "name": "Kycklingkebab 700g",
+        "emoji": "🍗",
+        "unit": "förp",
+        "image": "static/images/kycklingkebab.jpg"
+      },
+      {
+        "id": "kycklingleårfile",
+        "name": "Kycklinglårfilé",
+        "emoji": "🍗",
+        "unit": "förp",
+        "image": "static/images/kycklingleårfile.jpg"
+      },
+      {
+        "id": "kycklinginnerfile",
+        "name": "Kycklinginnerfilé",
+        "emoji": "🍗",
+        "unit": "förp",
+        "image": "static/images/kycklinginnerfile.jpg"
+      }
     ],
     "Mejeri & Kyl": [
-      {"id": "mjolk",              "name": "Standardmjölk 1.5L",        "emoji": "🥛", "unit": "L"},
-      {"id": "smor",               "name": "Smör NS 500g",              "emoji": "🧈", "unit": "förp"},
-      {"id": "normalsalt_smor",    "name": "Normalsalt Smör & Rapsolja","emoji": "🧈", "unit": "förp"},
-      {"id": "agg",                "name": "Ägg M 24P Frigående",       "emoji": "🥚", "unit": "förp"},
-      {"id": "grekisk_yoghurt",    "name": "Grekisk Yoghurt 1kg",       "emoji": "🍶", "unit": "förp"},
-      {"id": "yoghurt",            "name": "Yoghurt 17%",               "emoji": "🍶", "unit": "förp"},
-      {"id": "yoghurt_vanilj",     "name": "Mild Yoghurt Vanilj",       "emoji": "🍶", "unit": "förp"},
-      {"id": "turkisk_yoghurt",    "name": "Turkisk Yoghurt LF 500g",   "emoji": "🍶", "unit": "förp"},
-      {"id": "crunchy_yoghurt",    "name": "Crunchy Yoghurt",           "emoji": "🍶", "unit": "förp"},
-      {"id": "min_yoghurt",        "name": "Min Yoghurt 4P",            "emoji": "🍶", "unit": "förp"},
-      {"id": "matgradde",          "name": "Matgrädde 5dl",             "emoji": "🥛", "unit": "förp"},
-      {"id": "vispgradde",         "name": "Vispgrädde 36%",            "emoji": "🥛", "unit": "förp"},
-      {"id": "gradde",             "name": "Grädde 0.5L LF",            "emoji": "🥛", "unit": "förp"},
-      {"id": "graddfil",           "name": "Gräddfil 12%",              "emoji": "🍶", "unit": "förp"},
-      {"id": "parmigiano",         "name": "Parmigiano Reg Eko",        "emoji": "🧀", "unit": "förp"},
-      {"id": "vaniljsas",          "name": "Vaniljsås 5dl",             "emoji": "🥛", "unit": "förp"},
-      {"id": "apelsinjuice",       "name": "Apelsinjuice 1L",           "emoji": "🍊", "unit": "L"},
-      {"id": "appeljuice",         "name": "Äppeljuice 1L",             "emoji": "🍏", "unit": "L"}
+      {
+        "id": "mjolk",
+        "name": "Standardmjölk 1.5L",
+        "emoji": "🥛",
+        "unit": "L",
+        "image": "static/images/mjolk.jpg"
+      },
+      {
+        "id": "smor",
+        "name": "Smör NS 500g",
+        "emoji": "🧈",
+        "unit": "förp"
+      },
+      {
+        "id": "normalsalt_smor",
+        "name": "Normalsalt Smör & Rapsolja",
+        "emoji": "🧈",
+        "unit": "förp",
+        "image": "static/images/normalsalt_smor.jpg"
+      },
+      {
+        "id": "agg",
+        "name": "Ägg M 24P Frigående",
+        "emoji": "🥚",
+        "unit": "förp"
+      },
+      {
+        "id": "grekisk_yoghurt",
+        "name": "Grekisk Yoghurt 1kg",
+        "emoji": "🍶",
+        "unit": "förp",
+        "image": "static/images/grekisk_yoghurt.jpg"
+      },
+      {
+        "id": "yoghurt",
+        "name": "Yoghurt 17%",
+        "emoji": "🍶",
+        "unit": "förp",
+        "image": "static/images/yoghurt.jpg"
+      },
+      {
+        "id": "yoghurt_vanilj",
+        "name": "Mild Yoghurt Vanilj",
+        "emoji": "🍶",
+        "unit": "förp",
+        "image": "static/images/yoghurt_vanilj.jpg"
+      },
+      {
+        "id": "turkisk_yoghurt",
+        "name": "Turkisk Yoghurt LF 500g",
+        "emoji": "🍶",
+        "unit": "förp",
+        "image": "static/images/turkisk_yoghurt.jpg"
+      },
+      {
+        "id": "crunchy_yoghurt",
+        "name": "Crunchy Yoghurt",
+        "emoji": "🍶",
+        "unit": "förp",
+        "image": "static/images/crunchy_yoghurt.jpg"
+      },
+      {
+        "id": "min_yoghurt",
+        "name": "Min Yoghurt 4P",
+        "emoji": "🍶",
+        "unit": "förp"
+      },
+      {
+        "id": "matgradde",
+        "name": "Matgrädde 5dl",
+        "emoji": "🥛",
+        "unit": "förp",
+        "image": "static/images/matgradde.jpg"
+      },
+      {
+        "id": "vispgradde",
+        "name": "Vispgrädde 36%",
+        "emoji": "🥛",
+        "unit": "förp",
+        "image": "static/images/vispgradde.jpg"
+      },
+      {
+        "id": "gradde",
+        "name": "Grädde 0.5L LF",
+        "emoji": "🥛",
+        "unit": "förp",
+        "image": "static/images/gradde.jpg"
+      },
+      {
+        "id": "graddfil",
+        "name": "Gräddfil 12%",
+        "emoji": "🍶",
+        "unit": "förp",
+        "image": "static/images/graddfil.jpg"
+      },
+      {
+        "id": "parmigiano",
+        "name": "Parmigiano Reg Eko",
+        "emoji": "🧀",
+        "unit": "förp",
+        "image": "static/images/parmigiano.jpg"
+      },
+      {
+        "id": "vaniljsas",
+        "name": "Vaniljsås 5dl",
+        "emoji": "🥛",
+        "unit": "förp",
+        "image": "static/images/vaniljsas.jpg"
+      },
+      {
+        "id": "apelsinjuice",
+        "name": "Apelsinjuice 1L",
+        "emoji": "🍊",
+        "unit": "L",
+        "image": "static/images/apelsinjuice.jpg"
+      },
+      {
+        "id": "appeljuice",
+        "name": "Äppeljuice 1L",
+        "emoji": "🍏",
+        "unit": "L",
+        "image": "static/images/appeljuice.jpg"
+      }
     ],
     "Frukt & Grönt": [
-      {"id": "avokado",            "name": "Avokado 700g",              "emoji": "🥑", "unit": "förp"},
-      {"id": "banan",              "name": "Bananer Eko",               "emoji": "🍌", "unit": "kg"},
-      {"id": "citron",             "name": "Citron 500g",               "emoji": "🍋", "unit": "förp"},
-      {"id": "tomat_baby",         "name": "Tomat Babyplommon",         "emoji": "🍅", "unit": "förp"},
-      {"id": "gurka",              "name": "Gurka Sverige",             "emoji": "🥒", "unit": "st"},
-      {"id": "paprika",            "name": "Paprika Mix",               "emoji": "🫑", "unit": "förp"},
-      {"id": "isbergssallad",      "name": "Isbergssallad",             "emoji": "🥬", "unit": "st"},
-      {"id": "zucchini",           "name": "Zucchini Grön",             "emoji": "🥒", "unit": "st"},
-      {"id": "potatis",            "name": "Potatis Fast",              "emoji": "🥔", "unit": "kg"},
-      {"id": "gul_lok",            "name": "Gul Lök",                  "emoji": "🧅", "unit": "kg"},
-      {"id": "rod_lok",            "name": "Röd Lök 1kg",              "emoji": "🧅", "unit": "kg"},
-      {"id": "vitlok",             "name": "Vitlök Kapsel 100g",        "emoji": "🧄", "unit": "förp"},
-      {"id": "majskolv",           "name": "Majskolv",                 "emoji": "🌽", "unit": "st"},
-      {"id": "kiwi",               "name": "Kiwi 800g",                "emoji": "🥝", "unit": "förp"},
-      {"id": "mango",              "name": "Mango 500g",               "emoji": "🥭", "unit": "förp"}
+      {
+        "id": "avokado",
+        "name": "Avokado 700g",
+        "emoji": "🥑",
+        "unit": "förp",
+        "image": "static/images/avokado.jpg"
+      },
+      {
+        "id": "banan",
+        "name": "Bananer Eko",
+        "emoji": "🍌",
+        "unit": "kg",
+        "image": "static/images/banan.jpg"
+      },
+      {
+        "id": "citron",
+        "name": "Citron 500g",
+        "emoji": "🍋",
+        "unit": "förp",
+        "image": "static/images/citron.jpg"
+      },
+      {
+        "id": "tomat_baby",
+        "name": "Tomat Babyplommon",
+        "emoji": "🍅",
+        "unit": "förp",
+        "image": "static/images/tomat_baby.jpg"
+      },
+      {
+        "id": "gurka",
+        "name": "Gurka Sverige",
+        "emoji": "🥒",
+        "unit": "st",
+        "image": "static/images/gurka.jpg"
+      },
+      {
+        "id": "paprika",
+        "name": "Paprika Mix",
+        "emoji": "🫑",
+        "unit": "förp",
+        "image": "static/images/paprika.jpg"
+      },
+      {
+        "id": "isbergssallad",
+        "name": "Isbergssallad",
+        "emoji": "🥬",
+        "unit": "st",
+        "image": "static/images/isbergssallad.jpg"
+      },
+      {
+        "id": "zucchini",
+        "name": "Zucchini Grön",
+        "emoji": "🥒",
+        "unit": "st",
+        "image": "static/images/zucchini.jpg"
+      },
+      {
+        "id": "potatis",
+        "name": "Potatis Fast",
+        "emoji": "🥔",
+        "unit": "kg",
+        "image": "static/images/potatis.jpg"
+      },
+      {
+        "id": "gul_lok",
+        "name": "Gul Lök",
+        "emoji": "🧅",
+        "unit": "kg",
+        "image": "static/images/gul_lok.jpg"
+      },
+      {
+        "id": "rod_lok",
+        "name": "Röd Lök 1kg",
+        "emoji": "🧅",
+        "unit": "kg",
+        "image": "static/images/rod_lok.jpg"
+      },
+      {
+        "id": "vitlok",
+        "name": "Vitlök Kapsel 100g",
+        "emoji": "🧄",
+        "unit": "förp",
+        "image": "static/images/vitlok.jpg"
+      },
+      {
+        "id": "majskolv",
+        "name": "Majskolv",
+        "emoji": "🌽",
+        "unit": "st",
+        "image": "static/images/majskolv.jpg"
+      },
+      {
+        "id": "kiwi",
+        "name": "Kiwi 800g",
+        "emoji": "🥝",
+        "unit": "förp",
+        "image": "static/images/kiwi.jpg"
+      },
+      {
+        "id": "mango",
+        "name": "Mango 500g",
+        "emoji": "🥭",
+        "unit": "förp",
+        "image": "static/images/mango.jpg"
+      }
     ],
     "Barn": [
-      {"id": "blojor",             "name": "Touch 6 Blöjor 13-20kg",   "emoji": "👶", "unit": "förp"},
-      {"id": "nan_pro",            "name": "NAN Pro 2 6M+",             "emoji": "🍼", "unit": "förp"},
-      {"id": "fruktmums",          "name": "Fruktmums Mix 6M",          "emoji": "🍼", "unit": "förp"},
-      {"id": "fruktgrot",          "name": "Fruktgröt 8M 480g",         "emoji": "🥣", "unit": "förp"},
-      {"id": "min_yoghurt_barn",   "name": "Min Yoghurt 4P Banan/Jord","emoji": "🍶", "unit": "förp"},
-      {"id": "katrinplommon",      "name": "Katrinplommonmos 70g",      "emoji": "🥣", "unit": "förp"},
-      {"id": "baby_wash",          "name": "Baby Wash Parfymfri",       "emoji": "🛁", "unit": "förp"}
+      {
+        "id": "blojor",
+        "name": "Touch 6 Blöjor 13-20kg",
+        "emoji": "👶",
+        "unit": "förp",
+        "image": "static/images/blojor.jpg"
+      },
+      {
+        "id": "nan_pro",
+        "name": "NAN Pro 2 6M+",
+        "emoji": "🍼",
+        "unit": "förp",
+        "image": "static/images/nan_pro.jpg"
+      },
+      {
+        "id": "fruktmums",
+        "name": "Fruktmums Mix 6M",
+        "emoji": "🍼",
+        "unit": "förp",
+        "image": "static/images/fruktmums.jpg"
+      },
+      {
+        "id": "fruktgrot",
+        "name": "Fruktgröt 8M 480g",
+        "emoji": "🥣",
+        "unit": "förp",
+        "image": "static/images/fruktgrot.jpg"
+      },
+      {
+        "id": "min_yoghurt_barn",
+        "name": "Min Yoghurt 4P Banan/Jord",
+        "emoji": "🍶",
+        "unit": "förp",
+        "image": "static/images/min_yoghurt_barn.jpg"
+      },
+      {
+        "id": "katrinplommon",
+        "name": "Katrinplommonmos 70g",
+        "emoji": "🥣",
+        "unit": "förp",
+        "image": "static/images/katrinplommon.jpg"
+      },
+      {
+        "id": "baby_wash",
+        "name": "Baby Wash Parfymfri",
+        "emoji": "🛁",
+        "unit": "förp",
+        "image": "static/images/baby_wash.jpg"
+      }
     ],
     "Skafferi": [
-      {"id": "pasta",              "name": "Penne Rigate 500g",         "emoji": "🍝", "unit": "förp"},
-      {"id": "fusilli",            "name": "Fusilli 3kg",               "emoji": "🍝", "unit": "förp"},
-      {"id": "makaroner",          "name": "Makaroner Snabb",           "emoji": "🍝", "unit": "förp"},
-      {"id": "bulgur",             "name": "Pilavlik Bulgur",           "emoji": "🌾", "unit": "förp"},
-      {"id": "strosocker",         "name": "Strösocker 2kg",            "emoji": "🍚", "unit": "förp"},
-      {"id": "nudlar_orient",      "name": "Nudlar Orient 85g",         "emoji": "🍜", "unit": "förp"},
-      {"id": "nudlar_svamp",       "name": "Nudlar Svamp 85g",          "emoji": "🍜", "unit": "förp"},
-      {"id": "olivolja",           "name": "Olivolja Classico",         "emoji": "🫙", "unit": "förp"},
-      {"id": "rapsolja",           "name": "Rapsolja 3L",               "emoji": "🫙", "unit": "förp"},
-      {"id": "tomatpure",          "name": "Tomatpure 300g",            "emoji": "🥫", "unit": "förp"},
-      {"id": "kakao",              "name": "Kakao",                     "emoji": "🍫", "unit": "förp"},
-      {"id": "bakchoklad",         "name": "Bakchoklad Mörk",           "emoji": "🍫", "unit": "förp"},
-      {"id": "senap",              "name": "Senap Original",            "emoji": "🟡", "unit": "förp"},
-      {"id": "ketchup",            "name": "Ketchup Big P 1kg",         "emoji": "🟥", "unit": "förp"},
-      {"id": "sriracha",           "name": "Sriracha Chilli Sauce",     "emoji": "🌶️", "unit": "förp"},
-      {"id": "salsa",              "name": "Chunky Salsa 230g",         "emoji": "🥫", "unit": "förp"},
-      {"id": "cheddar_dip",        "name": "Cheddar Dip",               "emoji": "🧀", "unit": "förp"},
-      {"id": "dressing",           "name": "AM Dressing 230g",          "emoji": "🫙", "unit": "förp"},
-      {"id": "dressing_jalpeno",   "name": "AM Dressing Jalapeño",      "emoji": "🫙", "unit": "förp"},
-      {"id": "citron_pressad",     "name": "Citron Pressad 200ml",      "emoji": "🍋", "unit": "förp"},
-      {"id": "taco_spice",         "name": "Taco Spice Mix 3P",         "emoji": "🌮", "unit": "förp"},
-      {"id": "tortilla",           "name": "Tortilla Original Large",   "emoji": "🌮", "unit": "förp"},
-      {"id": "ljus_sirap",         "name": "Ljus Sirap",                "emoji": "🍯", "unit": "förp"},
-      {"id": "crisp_wheat",        "name": "Crisp Wheat",               "emoji": "🌾", "unit": "förp"},
-      {"id": "multivitamin",       "name": "Multivitamin Dryck",        "emoji": "🧃", "unit": "förp"}
+      {
+        "id": "pasta",
+        "name": "Penne Rigate 500g",
+        "emoji": "🍝",
+        "unit": "förp",
+        "image": "static/images/pasta.jpg"
+      },
+      {
+        "id": "fusilli",
+        "name": "Fusilli 3kg",
+        "emoji": "🍝",
+        "unit": "förp"
+      },
+      {
+        "id": "makaroner",
+        "name": "Makaroner Snabb",
+        "emoji": "🍝",
+        "unit": "förp",
+        "image": "static/images/makaroner.jpg"
+      },
+      {
+        "id": "bulgur",
+        "name": "Pilavlik Bulgur",
+        "emoji": "🌾",
+        "unit": "förp",
+        "image": "static/images/bulgur.jpg"
+      },
+      {
+        "id": "strosocker",
+        "name": "Strösocker 2kg",
+        "emoji": "🍚",
+        "unit": "förp",
+        "image": "static/images/strosocker.jpg"
+      },
+      {
+        "id": "nudlar_orient",
+        "name": "Nudlar Orient 85g",
+        "emoji": "🍜",
+        "unit": "förp",
+        "image": "static/images/nudlar_orient.jpg"
+      },
+      {
+        "id": "nudlar_svamp",
+        "name": "Nudlar Svamp 85g",
+        "emoji": "🍜",
+        "unit": "förp",
+        "image": "static/images/nudlar_svamp.jpg"
+      },
+      {
+        "id": "olivolja",
+        "name": "Olivolja Classico",
+        "emoji": "🫙",
+        "unit": "förp",
+        "image": "static/images/olivolja.jpg"
+      },
+      {
+        "id": "rapsolja",
+        "name": "Rapsolja 3L",
+        "emoji": "🫙",
+        "unit": "förp"
+      },
+      {
+        "id": "tomatpure",
+        "name": "Tomatpure 300g",
+        "emoji": "🥫",
+        "unit": "förp",
+        "image": "static/images/tomatpure.jpg"
+      },
+      {
+        "id": "kakao",
+        "name": "Kakao",
+        "emoji": "🍫",
+        "unit": "förp",
+        "image": "static/images/kakao.jpg"
+      },
+      {
+        "id": "bakchoklad",
+        "name": "Bakchoklad Mörk",
+        "emoji": "🍫",
+        "unit": "förp",
+        "image": "static/images/bakchoklad.jpg"
+      },
+      {
+        "id": "senap",
+        "name": "Senap Original",
+        "emoji": "🟡",
+        "unit": "förp",
+        "image": "static/images/senap.jpg"
+      },
+      {
+        "id": "ketchup",
+        "name": "Ketchup Big P 1kg",
+        "emoji": "🟥",
+        "unit": "förp",
+        "image": "static/images/ketchup.jpg"
+      },
+      {
+        "id": "sriracha",
+        "name": "Sriracha Chilli Sauce",
+        "emoji": "🌶️",
+        "unit": "förp",
+        "image": "static/images/sriracha.jpg"
+      },
+      {
+        "id": "salsa",
+        "name": "Chunky Salsa 230g",
+        "emoji": "🥫",
+        "unit": "förp",
+        "image": "static/images/salsa.jpg"
+      },
+      {
+        "id": "cheddar_dip",
+        "name": "Cheddar Dip",
+        "emoji": "🧀",
+        "unit": "förp",
+        "image": "static/images/cheddar_dip.jpg"
+      },
+      {
+        "id": "dressing",
+        "name": "AM Dressing 230g",
+        "emoji": "🫙",
+        "unit": "förp",
+        "image": "static/images/dressing.jpg"
+      },
+      {
+        "id": "dressing_jalpeno",
+        "name": "AM Dressing Jalapeño",
+        "emoji": "🫙",
+        "unit": "förp",
+        "image": "static/images/dressing_jalpeno.jpg"
+      },
+      {
+        "id": "citron_pressad",
+        "name": "Citron Pressad 200ml",
+        "emoji": "🍋",
+        "unit": "förp"
+      },
+      {
+        "id": "taco_spice",
+        "name": "Taco Spice Mix 3P",
+        "emoji": "🌮",
+        "unit": "förp"
+      },
+      {
+        "id": "tortilla",
+        "name": "Tortilla Original Large",
+        "emoji": "🌮",
+        "unit": "förp",
+        "image": "static/images/tortilla.jpg"
+      },
+      {
+        "id": "ljus_sirap",
+        "name": "Ljus Sirap",
+        "emoji": "🍯",
+        "unit": "förp",
+        "image": "static/images/ljus_sirap.jpg"
+      },
+      {
+        "id": "crisp_wheat",
+        "name": "Crisp Wheat",
+        "emoji": "🌾",
+        "unit": "förp",
+        "image": "static/images/crisp_wheat.jpg"
+      },
+      {
+        "id": "multivitamin",
+        "name": "Multivitamin Dryck",
+        "emoji": "🧃",
+        "unit": "förp",
+        "image": "static/images/multivitamin.jpg"
+      }
     ],
     "Bröd": [
-      {"id": "polarvete",          "name": "Polarvete 20P",             "emoji": "🍞", "unit": "förp"},
-      {"id": "hamburgerbrod",      "name": "Hamburgerbröd",             "emoji": "🍞", "unit": "förp"},
-      {"id": "korvbrod",           "name": "Korvbröd 16P",              "emoji": "🍞", "unit": "förp"},
-      {"id": "lingongrova",        "name": "Lingongrova 500g",          "emoji": "🍞", "unit": "förp"},
-      {"id": "levain",             "name": "Levain 650g",               "emoji": "🍞", "unit": "förp"},
-      {"id": "skargardskaka",      "name": "Skärgårdskaka Hönö",        "emoji": "🍞", "unit": "förp"},
-      {"id": "orientbrod",         "name": "Orientbröd 350g Vete",      "emoji": "🫓", "unit": "förp"}
+      {
+        "id": "polarvete",
+        "name": "Polarvete 20P",
+        "emoji": "🍞",
+        "unit": "förp",
+        "image": "static/images/polarvete.jpg"
+      },
+      {
+        "id": "hamburgerbrod",
+        "name": "Hamburgerbröd",
+        "emoji": "🍞",
+        "unit": "förp",
+        "image": "static/images/hamburgerbrod.jpg"
+      },
+      {
+        "id": "korvbrod",
+        "name": "Korvbröd 16P",
+        "emoji": "🍞",
+        "unit": "förp",
+        "image": "static/images/korvbrod.jpg"
+      },
+      {
+        "id": "lingongrova",
+        "name": "Lingongrova 500g",
+        "emoji": "🍞",
+        "unit": "förp",
+        "image": "static/images/lingongrova.jpg"
+      },
+      {
+        "id": "levain",
+        "name": "Levain 650g",
+        "emoji": "🍞",
+        "unit": "förp",
+        "image": "static/images/levain.jpg"
+      },
+      {
+        "id": "skargardskaka",
+        "name": "Skärgårdskaka Hönö",
+        "emoji": "🍞",
+        "unit": "förp",
+        "image": "static/images/skargardskaka.jpg"
+      },
+      {
+        "id": "orientbrod",
+        "name": "Orientbröd 350g Vete",
+        "emoji": "🫓",
+        "unit": "förp"
+      }
     ],
     "Hem & Hygien": [
-      {"id": "diskmedel",          "name": "Diskmedel Original",        "emoji": "🧴", "unit": "förp"},
-      {"id": "skoljmedel",         "name": "Sköljmedel",                "emoji": "🧴", "unit": "förp"},
-      {"id": "hushallspapper",     "name": "Hushållspapper",            "emoji": "🧻", "unit": "förp"},
-      {"id": "toapapper",          "name": "Toapapper Plus",            "emoji": "🧻", "unit": "förp"},
-      {"id": "tvattlapp",          "name": "Tvättlapp 250P",            "emoji": "🧽", "unit": "förp"},
-      {"id": "microfiber",         "name": "Microfiber 5P Universal",   "emoji": "🧽", "unit": "förp"},
-      {"id": "rengoring",          "name": "Rengöringssvamp 10P",       "emoji": "🧽", "unit": "förp"},
-      {"id": "refill_mopp",        "name": "Refill Bomullsmopp",        "emoji": "🧹", "unit": "förp"},
-      {"id": "carpet_care",        "name": "Carpet Care",               "emoji": "🧹", "unit": "förp"},
-      {"id": "avfallspasar",       "name": "Avfallspåsar 30L",          "emoji": "🗑️", "unit": "förp"},
-      {"id": "pas_frys",           "name": "Påse 50P Frys 2L",         "emoji": "🛍️", "unit": "förp"},
-      {"id": "pappkasse",          "name": "Pappkasse",                 "emoji": "🛍️", "unit": "st"},
-      {"id": "engangshyvlar",      "name": "Engångshyvlar 10P",         "emoji": "🪒", "unit": "förp"},
-      {"id": "twister_medium",     "name": "Twister Medium Tandborste", "emoji": "🪥", "unit": "förp"},
-      {"id": "twister_soft",       "name": "Twister Soft Tandborste",   "emoji": "🪥", "unit": "förp"},
-      {"id": "mellanrumsborst",    "name": "Mellanrumsborste 0.6mm",    "emoji": "🪥", "unit": "förp"},
-      {"id": "tandtradsbygel",     "name": "Tandtrådsbygel",            "emoji": "🪥", "unit": "förp"},
-      {"id": "max_fresh",          "name": "Max Fresh Tandkräm",        "emoji": "🧴", "unit": "förp"},
-      {"id": "dreamlengths_sch",   "name": "Dreamlengths Schampo",      "emoji": "🧴", "unit": "förp"},
-      {"id": "dreamlengths_balsam","name": "Dreamlengths Balsam",       "emoji": "🧴", "unit": "förp"},
-      {"id": "deospray",           "name": "Deospray Pomegranate",      "emoji": "🧴", "unit": "förp"},
-      {"id": "vaselin",            "name": "Vaselin 40g",               "emoji": "🧴", "unit": "förp"},
-      {"id": "vatservetter",       "name": "Våtservetter",              "emoji": "🧻", "unit": "förp"}
+      {
+        "id": "diskmedel",
+        "name": "Diskmedel Original",
+        "emoji": "🧴",
+        "unit": "förp",
+        "image": "static/images/diskmedel.jpg"
+      },
+      {
+        "id": "skoljmedel",
+        "name": "Sköljmedel",
+        "emoji": "🧴",
+        "unit": "förp",
+        "image": "static/images/skoljmedel.jpg"
+      },
+      {
+        "id": "hushallspapper",
+        "name": "Hushållspapper",
+        "emoji": "🧻",
+        "unit": "förp",
+        "image": "static/images/hushallspapper.jpg"
+      },
+      {
+        "id": "toapapper",
+        "name": "Toapapper Plus",
+        "emoji": "🧻",
+        "unit": "förp",
+        "image": "static/images/toapapper.jpg"
+      },
+      {
+        "id": "tvattlapp",
+        "name": "Tvättlapp 250P",
+        "emoji": "🧽",
+        "unit": "förp",
+        "image": "static/images/tvattlapp.jpg"
+      },
+      {
+        "id": "microfiber",
+        "name": "Microfiber 5P Universal",
+        "emoji": "🧽",
+        "unit": "förp",
+        "image": "static/images/microfiber.jpg"
+      },
+      {
+        "id": "rengoring",
+        "name": "Rengöringssvamp 10P",
+        "emoji": "🧽",
+        "unit": "förp",
+        "image": "static/images/rengoring.jpg"
+      },
+      {
+        "id": "refill_mopp",
+        "name": "Refill Bomullsmopp",
+        "emoji": "🧹",
+        "unit": "förp",
+        "image": "static/images/refill_mopp.jpg"
+      },
+      {
+        "id": "carpet_care",
+        "name": "Carpet Care",
+        "emoji": "🧹",
+        "unit": "förp",
+        "image": "static/images/carpet_care.jpg"
+      },
+      {
+        "id": "avfallspasar",
+        "name": "Avfallspåsar 30L",
+        "emoji": "🗑️",
+        "unit": "förp",
+        "image": "static/images/avfallspasar.jpg"
+      },
+      {
+        "id": "pas_frys",
+        "name": "Påse 50P Frys 2L",
+        "emoji": "🛍️",
+        "unit": "förp",
+        "image": "static/images/pas_frys.jpg"
+      },
+      {
+        "id": "pappkasse",
+        "name": "Pappkasse",
+        "emoji": "🛍️",
+        "unit": "st"
+      },
+      {
+        "id": "engangshyvlar",
+        "name": "Engångshyvlar 10P",
+        "emoji": "🪒",
+        "unit": "förp",
+        "image": "static/images/engangshyvlar.jpg"
+      },
+      {
+        "id": "twister_medium",
+        "name": "Twister Medium Tandborste",
+        "emoji": "🪥",
+        "unit": "förp",
+        "image": "static/images/twister_medium.jpg"
+      },
+      {
+        "id": "twister_soft",
+        "name": "Twister Soft Tandborste",
+        "emoji": "🪥",
+        "unit": "förp",
+        "image": "static/images/twister_soft.jpg"
+      },
+      {
+        "id": "mellanrumsborst",
+        "name": "Mellanrumsborste 0.6mm",
+        "emoji": "🪥",
+        "unit": "förp",
+        "image": "static/images/mellanrumsborst.jpg"
+      },
+      {
+        "id": "tandtradsbygel",
+        "name": "Tandtrådsbygel",
+        "emoji": "🪥",
+        "unit": "förp",
+        "image": "static/images/tandtradsbygel.jpg"
+      },
+      {
+        "id": "max_fresh",
+        "name": "Max Fresh Tandkräm",
+        "emoji": "🧴",
+        "unit": "förp",
+        "image": "static/images/max_fresh.jpg"
+      },
+      {
+        "id": "dreamlengths_sch",
+        "name": "Dreamlengths Schampo",
+        "emoji": "🧴",
+        "unit": "förp",
+        "image": "static/images/dreamlengths_sch.jpg"
+      },
+      {
+        "id": "dreamlengths_balsam",
+        "name": "Dreamlengths Balsam",
+        "emoji": "🧴",
+        "unit": "förp"
+      },
+      {
+        "id": "deospray",
+        "name": "Deospray Pomegranate",
+        "emoji": "🧴",
+        "unit": "förp",
+        "image": "static/images/deospray.jpg"
+      },
+      {
+        "id": "vaselin",
+        "name": "Vaselin 40g",
+        "emoji": "🧴",
+        "unit": "förp",
+        "image": "static/images/vaselin.jpg"
+      },
+      {
+        "id": "vatservetter",
+        "name": "Våtservetter",
+        "emoji": "🧻",
+        "unit": "förp",
+        "image": "static/images/vatservetter.jpg"
+      }
     ],
     "Godis & Glass": [
-      {"id": "strawb_cream",       "name": "Strawberries & Cream 0.46L","emoji": "🍦", "unit": "st"},
-      {"id": "bj_glass",           "name": "B&J Churr Glass",           "emoji": "🍦", "unit": "st"},
-      {"id": "almond_cone",        "name": "Almond Cone",               "emoji": "🍦", "unit": "st"},
-      {"id": "vanilla_pecan",      "name": "Vanilla Pecan Blond",       "emoji": "🍦", "unit": "st"},
-      {"id": "pommes_strips",      "name": "Pommes Strips",             "emoji": "🍟", "unit": "förp"}
+      {
+        "id": "strawb_cream",
+        "name": "Strawberries & Cream 0.46L",
+        "emoji": "🍦",
+        "unit": "st",
+        "image": "static/images/strawb_cream.jpg"
+      },
+      {
+        "id": "bj_glass",
+        "name": "B&J Churr Glass",
+        "emoji": "🍦",
+        "unit": "st",
+        "image": "static/images/bj_glass.jpg"
+      },
+      {
+        "id": "almond_cone",
+        "name": "Almond Cone",
+        "emoji": "🍦",
+        "unit": "st",
+        "image": "static/images/almond_cone.jpg"
+      },
+      {
+        "id": "vanilla_pecan",
+        "name": "Vanilla Pecan Blond",
+        "emoji": "🍦",
+        "unit": "st",
+        "image": "static/images/vanilla_pecan.jpg"
+      },
+      {
+        "id": "pommes_strips",
+        "name": "Pommes Strips",
+        "emoji": "🍟",
+        "unit": "förp",
+        "image": "static/images/pommes_strips.jpg"
+      }
     ]
   }
 }

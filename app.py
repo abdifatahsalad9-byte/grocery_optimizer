@@ -170,12 +170,15 @@ for category, products in products_data["categories"].items():
     cols = st.columns(5)
     for i, product in enumerate(products):
         in_cart = product["id"] in st.session_state.cart
-        qty = st.session_state.cart.get(product["id"], {}).get("qty", 0)
-        label = f"{product['emoji']}\n{product['name']}"
+        qty     = st.session_state.cart.get(product["id"], {}).get("qty", 0)
+        label   = f"{product['emoji']} {product['name']}"
         if in_cart:
-            label += f"\n✅ ×{qty}"
+            label += f" ✅ ×{qty}"
 
         with cols[i % 5]:
+            image_path = product.get("image")
+            if image_path and Path(image_path).exists():
+                st.image(image_path, use_container_width=True)
             if st.button(label, key=f"btn_{product['id']}", use_container_width=True):
                 add_to_cart(product)
                 st.rerun()

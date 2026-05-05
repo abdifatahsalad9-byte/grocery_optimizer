@@ -1,0 +1,2931 @@
+{
+  "updated_at": "2026-05-05T14:16:51.215116",
+  "prices": {
+    "🟡 Willys": {
+      "kycklingfile": {
+        "price": 131.54,
+        "offer": ""
+      },
+      "kycklingkebab": {
+        "price": 66.15,
+        "offer": ""
+      },
+      "kycklingleårfile": {
+        "price": 56.68,
+        "offer": ""
+      },
+      "kycklinginnerfile": {
+        "price": 47.22,
+        "offer": ""
+      },
+      "mjolk": {
+        "price": 18.3,
+        "offer": ""
+      },
+      "smor": {
+        "price": 61.42,
+        "offer": ""
+      },
+      "normalsalt_smor": {
+        "price": 51.5,
+        "offer": ""
+      },
+      "agg": {
+        "price": 59.9,
+        "offer": ""
+      },
+      "grekisk_yoghurt": {
+        "price": 35.86,
+        "offer": ""
+      },
+      "yoghurt": {
+        "price": 28.29,
+        "offer": ""
+      },
+      "yoghurt_vanilj": {
+        "price": 20.5,
+        "offer": ""
+      },
+      "turkisk_yoghurt": {
+        "price": 26.4,
+        "offer": ""
+      },
+      "crunchy_yoghurt": {
+        "price": 31.04,
+        "offer": ""
+      },
+      "min_yoghurt": {
+        "price": 24.51,
+        "offer": ""
+      },
+      "matgradde": {
+        "price": 24.51,
+        "offer": ""
+      },
+      "vispgradde": {
+        "price": 30.19,
+        "offer": ""
+      },
+      "gradde": {
+        "price": 32.65,
+        "offer": ""
+      },
+      "graddfil": {
+        "price": 19.77,
+        "offer": ""
+      },
+      "parmigiano": {
+        "price": 56.68,
+        "offer": ""
+      },
+      "vaniljsas": {
+        "price": 25.45,
+        "offer": ""
+      },
+      "apelsinjuice": {
+        "price": 23.56,
+        "offer": ""
+      },
+      "appeljuice": {
+        "price": 17.9,
+        "offer": ""
+      },
+      "avokado": {
+        "price": 39.9,
+        "offer": ""
+      },
+      "banan": {
+        "price": 32.49,
+        "offer": ""
+      },
+      "citron": {
+        "price": 15.9,
+        "offer": ""
+      },
+      "tomat_baby": {
+        "price": 40.6,
+        "offer": ""
+      },
+      "gurka": {
+        "price": 15.9,
+        "offer": ""
+      },
+      "paprika": {
+        "price": 27.9,
+        "offer": ""
+      },
+      "isbergssallad": {
+        "price": 17.0,
+        "offer": ""
+      },
+      "zucchini": {
+        "price": 9.9,
+        "offer": ""
+      },
+      "potatis": {
+        "price": 19.44,
+        "offer": ""
+      },
+      "gul_lok": {
+        "price": 7.9,
+        "offer": ""
+      },
+      "rod_lok": {
+        "price": 16.9,
+        "offer": ""
+      },
+      "vitlok": {
+        "price": 11.9,
+        "offer": ""
+      },
+      "majskolv": {
+        "price": 21.9,
+        "offer": ""
+      },
+      "kiwi": {
+        "price": 37.6,
+        "offer": ""
+      },
+      "mango": {
+        "price": 20.72,
+        "offer": ""
+      },
+      "blojor": {
+        "price": 122.9,
+        "offer": "Köp 2 betala för 1.5"
+      },
+      "nan_pro": {
+        "price": 131.45,
+        "offer": ""
+      },
+      "fruktmums": {
+        "price": 94.54,
+        "offer": ""
+      },
+      "fruktgrot": {
+        "price": 46.27,
+        "offer": ""
+      },
+      "min_yoghurt_barn": {
+        "price": 24.51,
+        "offer": ""
+      },
+      "katrinplommon": {
+        "price": 10.31,
+        "offer": ""
+      },
+      "baby_wash": {
+        "price": 34.9,
+        "offer": ""
+      },
+      "pasta": {
+        "price": 8.42,
+        "offer": ""
+      },
+      "fusilli": {
+        "price": 40.6,
+        "offer": ""
+      },
+      "makaroner": {
+        "price": 14.1,
+        "offer": ""
+      },
+      "bulgur": {
+        "price": 19.77,
+        "offer": ""
+      },
+      "strosocker": {
+        "price": 22.61,
+        "offer": ""
+      },
+      "nudlar_orient": {
+        "price": 4.63,
+        "offer": ""
+      },
+      "nudlar_svamp": {
+        "price": 4.63,
+        "offer": ""
+      },
+      "olivolja": {
+        "price": 75.61,
+        "offer": ""
+      },
+      "rapsolja": {
+        "price": 66.15,
+        "offer": ""
+      },
+      "tomatpure": {
+        "price": 23.56,
+        "offer": ""
+      },
+      "kakao": {
+        "price": 37.76,
+        "offer": ""
+      },
+      "bakchoklad": {
+        "price": 38.7,
+        "offer": ""
+      },
+      "senap": {
+        "price": 15.99,
+        "offer": ""
+      },
+      "ketchup": {
+        "price": 31.13,
+        "offer": ""
+      },
+      "sriracha": {
+        "price": 44.38,
+        "offer": ""
+      },
+      "salsa": {
+        "price": 15.04,
+        "offer": ""
+      },
+      "cheddar_dip": {
+        "price": 28.29,
+        "offer": ""
+      },
+      "dressing": {
+        "price": 16.9,
+        "offer": ""
+      },
+      "dressing_jalpeno": {
+        "price": 16.9,
+        "offer": ""
+      },
+      "citron_pressad": {
+        "price": 9.36,
+        "offer": ""
+      },
+      "taco_spice": {
+        "price": 25.45,
+        "offer": ""
+      },
+      "tortilla": {
+        "price": 39.27,
+        "offer": ""
+      },
+      "ljus_sirap": {
+        "price": 15.04,
+        "offer": ""
+      },
+      "crisp_wheat": {
+        "price": 15.61,
+        "offer": ""
+      },
+      "multivitamin": {
+        "price": 19.5,
+        "offer": ""
+      },
+      "polarvete": {
+        "price": 34.92,
+        "offer": ""
+      },
+      "hamburgerbrod": {
+        "price": 31.7,
+        "offer": ""
+      },
+      "korvbrod": {
+        "price": 19.68,
+        "offer": ""
+      },
+      "lingongrova": {
+        "price": 22.87,
+        "offer": ""
+      },
+      "levain": {
+        "price": 35.86,
+        "offer": ""
+      },
+      "skargardskaka": {
+        "price": 29.67,
+        "offer": ""
+      },
+      "orientbrod": {
+        "price": 9.36,
+        "offer": ""
+      },
+      "diskmedel": {
+        "price": 69.9,
+        "offer": ""
+      },
+      "skoljmedel": {
+        "price": 47.9,
+        "offer": ""
+      },
+      "hushallspapper": {
+        "price": 29.9,
+        "offer": ""
+      },
+      "toapapper": {
+        "price": 27.9,
+        "offer": ""
+      },
+      "tvattlapp": {
+        "price": 47.9,
+        "offer": ""
+      },
+      "microfiber": {
+        "price": 29.9,
+        "offer": ""
+      },
+      "rengoring": {
+        "price": 6.9,
+        "offer": ""
+      },
+      "refill_mopp": {
+        "price": 19.9,
+        "offer": ""
+      },
+      "carpet_care": {
+        "price": 59.9,
+        "offer": ""
+      },
+      "avfallspasar": {
+        "price": 19.9,
+        "offer": ""
+      },
+      "pas_frys": {
+        "price": 16.9,
+        "offer": ""
+      },
+      "pappkasse": {
+        "price": 4.9,
+        "offer": ""
+      },
+      "engangshyvlar": {
+        "price": 28.9,
+        "offer": ""
+      },
+      "twister_medium": {
+        "price": 16.9,
+        "offer": ""
+      },
+      "twister_soft": {
+        "price": 16.9,
+        "offer": ""
+      },
+      "mellanrumsborst": {
+        "price": 34.9,
+        "offer": ""
+      },
+      "tandtradsbygel": {
+        "price": 39.9,
+        "offer": ""
+      },
+      "max_fresh": {
+        "price": 19.9,
+        "offer": ""
+      },
+      "dreamlengths_sch": {
+        "price": 36.9,
+        "offer": ""
+      },
+      "dreamlengths_balsam": {
+        "price": 36.9,
+        "offer": ""
+      },
+      "deospray": {
+        "price": 34.9,
+        "offer": ""
+      },
+      "vaselin": {
+        "price": 18.9,
+        "offer": ""
+      },
+      "vatservetter": {
+        "price": 11.9,
+        "offer": ""
+      },
+      "strawb_cream": {
+        "price": 50.06,
+        "offer": ""
+      },
+      "bj_glass": {
+        "price": 58.58,
+        "offer": ""
+      },
+      "almond_cone": {
+        "price": 28.39,
+        "offer": ""
+      },
+      "vanilla_pecan": {
+        "price": 58.58,
+        "offer": ""
+      },
+      "pommes_strips": {
+        "price": 33.97,
+        "offer": ""
+      }
+    },
+    "🔴 ICA": {
+      "kycklingfile": {
+        "price": 140.75,
+        "offer": ""
+      },
+      "kycklingkebab": {
+        "price": 70.78,
+        "offer": ""
+      },
+      "kycklingleårfile": {
+        "price": 60.65,
+        "offer": ""
+      },
+      "kycklinginnerfile": {
+        "price": 50.53,
+        "offer": ""
+      },
+      "mjolk": {
+        "price": 19.58,
+        "offer": ""
+      },
+      "smor": {
+        "price": 65.72,
+        "offer": ""
+      },
+      "normalsalt_smor": {
+        "price": 55.11,
+        "offer": ""
+      },
+      "agg": {
+        "price": 64.09,
+        "offer": "Veckans vara"
+      },
+      "grekisk_yoghurt": {
+        "price": 38.37,
+        "offer": ""
+      },
+      "yoghurt": {
+        "price": 30.27,
+        "offer": ""
+      },
+      "yoghurt_vanilj": {
+        "price": 21.94,
+        "offer": ""
+      },
+      "turkisk_yoghurt": {
+        "price": 28.25,
+        "offer": ""
+      },
+      "crunchy_yoghurt": {
+        "price": 33.21,
+        "offer": ""
+      },
+      "min_yoghurt": {
+        "price": 26.23,
+        "offer": ""
+      },
+      "matgradde": {
+        "price": 26.23,
+        "offer": ""
+      },
+      "vispgradde": {
+        "price": 32.3,
+        "offer": ""
+      },
+      "gradde": {
+        "price": 34.94,
+        "offer": ""
+      },
+      "graddfil": {
+        "price": 21.15,
+        "offer": ""
+      },
+      "parmigiano": {
+        "price": 60.65,
+        "offer": ""
+      },
+      "vaniljsas": {
+        "price": 27.23,
+        "offer": ""
+      },
+      "apelsinjuice": {
+        "price": 25.21,
+        "offer": ""
+      },
+      "appeljuice": {
+        "price": 19.15,
+        "offer": ""
+      },
+      "avokado": {
+        "price": 42.69,
+        "offer": ""
+      },
+      "banan": {
+        "price": 34.76,
+        "offer": ""
+      },
+      "citron": {
+        "price": 17.01,
+        "offer": ""
+      },
+      "tomat_baby": {
+        "price": 43.44,
+        "offer": ""
+      },
+      "gurka": {
+        "price": 17.01,
+        "offer": ""
+      },
+      "paprika": {
+        "price": 29.85,
+        "offer": "3 för 79 kr"
+      },
+      "isbergssallad": {
+        "price": 18.19,
+        "offer": ""
+      },
+      "zucchini": {
+        "price": 10.59,
+        "offer": ""
+      },
+      "potatis": {
+        "price": 20.8,
+        "offer": ""
+      },
+      "gul_lok": {
+        "price": 8.45,
+        "offer": ""
+      },
+      "rod_lok": {
+        "price": 18.08,
+        "offer": ""
+      },
+      "vitlok": {
+        "price": 12.73,
+        "offer": ""
+      },
+      "majskolv": {
+        "price": 23.43,
+        "offer": ""
+      },
+      "kiwi": {
+        "price": 40.23,
+        "offer": ""
+      },
+      "mango": {
+        "price": 22.17,
+        "offer": ""
+      },
+      "blojor": {
+        "price": 131.5,
+        "offer": ""
+      },
+      "nan_pro": {
+        "price": 140.65,
+        "offer": ""
+      },
+      "fruktmums": {
+        "price": 101.16,
+        "offer": ""
+      },
+      "fruktgrot": {
+        "price": 49.51,
+        "offer": ""
+      },
+      "min_yoghurt_barn": {
+        "price": 26.23,
+        "offer": ""
+      },
+      "katrinplommon": {
+        "price": 11.03,
+        "offer": ""
+      },
+      "baby_wash": {
+        "price": 37.34,
+        "offer": ""
+      },
+      "pasta": {
+        "price": 9.01,
+        "offer": ""
+      },
+      "fusilli": {
+        "price": 43.44,
+        "offer": ""
+      },
+      "makaroner": {
+        "price": 15.09,
+        "offer": ""
+      },
+      "bulgur": {
+        "price": 21.15,
+        "offer": ""
+      },
+      "strosocker": {
+        "price": 24.19,
+        "offer": ""
+      },
+      "nudlar_orient": {
+        "price": 4.95,
+        "offer": ""
+      },
+      "nudlar_svamp": {
+        "price": 4.95,
+        "offer": ""
+      },
+      "olivolja": {
+        "price": 80.9,
+        "offer": ""
+      },
+      "rapsolja": {
+        "price": 70.78,
+        "offer": ""
+      },
+      "tomatpure": {
+        "price": 25.21,
+        "offer": ""
+      },
+      "kakao": {
+        "price": 40.4,
+        "offer": ""
+      },
+      "bakchoklad": {
+        "price": 41.41,
+        "offer": ""
+      },
+      "senap": {
+        "price": 17.11,
+        "offer": ""
+      },
+      "ketchup": {
+        "price": 33.31,
+        "offer": ""
+      },
+      "sriracha": {
+        "price": 47.49,
+        "offer": ""
+      },
+      "salsa": {
+        "price": 16.09,
+        "offer": ""
+      },
+      "cheddar_dip": {
+        "price": 30.27,
+        "offer": ""
+      },
+      "dressing": {
+        "price": 18.08,
+        "offer": ""
+      },
+      "dressing_jalpeno": {
+        "price": 18.08,
+        "offer": ""
+      },
+      "citron_pressad": {
+        "price": 10.02,
+        "offer": ""
+      },
+      "taco_spice": {
+        "price": 27.23,
+        "offer": ""
+      },
+      "tortilla": {
+        "price": 42.02,
+        "offer": ""
+      },
+      "ljus_sirap": {
+        "price": 16.09,
+        "offer": ""
+      },
+      "crisp_wheat": {
+        "price": 16.7,
+        "offer": ""
+      },
+      "multivitamin": {
+        "price": 20.87,
+        "offer": ""
+      },
+      "polarvete": {
+        "price": 37.36,
+        "offer": ""
+      },
+      "hamburgerbrod": {
+        "price": 33.92,
+        "offer": ""
+      },
+      "korvbrod": {
+        "price": 21.06,
+        "offer": ""
+      },
+      "lingongrova": {
+        "price": 24.47,
+        "offer": ""
+      },
+      "levain": {
+        "price": 38.37,
+        "offer": ""
+      },
+      "skargardskaka": {
+        "price": 31.75,
+        "offer": ""
+      },
+      "orientbrod": {
+        "price": 10.02,
+        "offer": ""
+      },
+      "diskmedel": {
+        "price": 74.79,
+        "offer": ""
+      },
+      "skoljmedel": {
+        "price": 51.25,
+        "offer": ""
+      },
+      "hushallspapper": {
+        "price": 31.99,
+        "offer": ""
+      },
+      "toapapper": {
+        "price": 29.85,
+        "offer": ""
+      },
+      "tvattlapp": {
+        "price": 51.25,
+        "offer": ""
+      },
+      "microfiber": {
+        "price": 31.99,
+        "offer": ""
+      },
+      "rengoring": {
+        "price": 7.38,
+        "offer": ""
+      },
+      "refill_mopp": {
+        "price": 21.29,
+        "offer": ""
+      },
+      "carpet_care": {
+        "price": 64.09,
+        "offer": ""
+      },
+      "avfallspasar": {
+        "price": 21.29,
+        "offer": ""
+      },
+      "pas_frys": {
+        "price": 18.08,
+        "offer": ""
+      },
+      "pappkasse": {
+        "price": 5.24,
+        "offer": ""
+      },
+      "engangshyvlar": {
+        "price": 30.92,
+        "offer": ""
+      },
+      "twister_medium": {
+        "price": 18.08,
+        "offer": ""
+      },
+      "twister_soft": {
+        "price": 18.08,
+        "offer": ""
+      },
+      "mellanrumsborst": {
+        "price": 37.34,
+        "offer": ""
+      },
+      "tandtradsbygel": {
+        "price": 42.69,
+        "offer": ""
+      },
+      "max_fresh": {
+        "price": 21.29,
+        "offer": ""
+      },
+      "dreamlengths_sch": {
+        "price": 39.48,
+        "offer": ""
+      },
+      "dreamlengths_balsam": {
+        "price": 39.48,
+        "offer": ""
+      },
+      "deospray": {
+        "price": 37.34,
+        "offer": ""
+      },
+      "vaselin": {
+        "price": 20.22,
+        "offer": ""
+      },
+      "vatservetter": {
+        "price": 12.73,
+        "offer": ""
+      },
+      "strawb_cream": {
+        "price": 53.56,
+        "offer": ""
+      },
+      "bj_glass": {
+        "price": 62.68,
+        "offer": ""
+      },
+      "almond_cone": {
+        "price": 30.38,
+        "offer": ""
+      },
+      "vanilla_pecan": {
+        "price": 62.68,
+        "offer": ""
+      },
+      "pommes_strips": {
+        "price": 36.35,
+        "offer": ""
+      }
+    },
+    "🟢 Coop": {
+      "kycklingfile": {
+        "price": 135.49,
+        "offer": ""
+      },
+      "kycklingkebab": {
+        "price": 68.13,
+        "offer": ""
+      },
+      "kycklingleårfile": {
+        "price": 58.38,
+        "offer": ""
+      },
+      "kycklinginnerfile": {
+        "price": 48.64,
+        "offer": ""
+      },
+      "mjolk": {
+        "price": 18.85,
+        "offer": ""
+      },
+      "smor": {
+        "price": 63.26,
+        "offer": ""
+      },
+      "normalsalt_smor": {
+        "price": 53.05,
+        "offer": ""
+      },
+      "agg": {
+        "price": 61.7,
+        "offer": ""
+      },
+      "grekisk_yoghurt": {
+        "price": 36.94,
+        "offer": ""
+      },
+      "yoghurt": {
+        "price": 29.14,
+        "offer": ""
+      },
+      "yoghurt_vanilj": {
+        "price": 21.12,
+        "offer": ""
+      },
+      "turkisk_yoghurt": {
+        "price": 27.19,
+        "offer": ""
+      },
+      "crunchy_yoghurt": {
+        "price": 31.97,
+        "offer": ""
+      },
+      "min_yoghurt": {
+        "price": 25.25,
+        "offer": ""
+      },
+      "matgradde": {
+        "price": 25.25,
+        "offer": ""
+      },
+      "vispgradde": {
+        "price": 31.1,
+        "offer": ""
+      },
+      "gradde": {
+        "price": 33.63,
+        "offer": ""
+      },
+      "graddfil": {
+        "price": 20.36,
+        "offer": ""
+      },
+      "parmigiano": {
+        "price": 58.38,
+        "offer": ""
+      },
+      "vaniljsas": {
+        "price": 26.21,
+        "offer": ""
+      },
+      "apelsinjuice": {
+        "price": 24.27,
+        "offer": ""
+      },
+      "appeljuice": {
+        "price": 18.44,
+        "offer": ""
+      },
+      "avokado": {
+        "price": 41.1,
+        "offer": ""
+      },
+      "banan": {
+        "price": 33.46,
+        "offer": "Ekologiskt veckopris"
+      },
+      "citron": {
+        "price": 16.38,
+        "offer": ""
+      },
+      "tomat_baby": {
+        "price": 41.82,
+        "offer": ""
+      },
+      "gurka": {
+        "price": 16.38,
+        "offer": ""
+      },
+      "paprika": {
+        "price": 28.74,
+        "offer": ""
+      },
+      "isbergssallad": {
+        "price": 17.51,
+        "offer": ""
+      },
+      "zucchini": {
+        "price": 10.2,
+        "offer": ""
+      },
+      "potatis": {
+        "price": 20.02,
+        "offer": ""
+      },
+      "gul_lok": {
+        "price": 8.14,
+        "offer": ""
+      },
+      "rod_lok": {
+        "price": 17.41,
+        "offer": ""
+      },
+      "vitlok": {
+        "price": 12.26,
+        "offer": ""
+      },
+      "majskolv": {
+        "price": 22.56,
+        "offer": ""
+      },
+      "kiwi": {
+        "price": 38.73,
+        "offer": ""
+      },
+      "mango": {
+        "price": 21.34,
+        "offer": ""
+      },
+      "blojor": {
+        "price": 126.59,
+        "offer": ""
+      },
+      "nan_pro": {
+        "price": 135.39,
+        "offer": ""
+      },
+      "fruktmums": {
+        "price": 97.38,
+        "offer": ""
+      },
+      "fruktgrot": {
+        "price": 47.66,
+        "offer": ""
+      },
+      "min_yoghurt_barn": {
+        "price": 25.25,
+        "offer": ""
+      },
+      "katrinplommon": {
+        "price": 10.62,
+        "offer": ""
+      },
+      "baby_wash": {
+        "price": 35.95,
+        "offer": ""
+      },
+      "pasta": {
+        "price": 8.67,
+        "offer": ""
+      },
+      "fusilli": {
+        "price": 41.82,
+        "offer": ""
+      },
+      "makaroner": {
+        "price": 14.52,
+        "offer": ""
+      },
+      "bulgur": {
+        "price": 20.36,
+        "offer": ""
+      },
+      "strosocker": {
+        "price": 23.29,
+        "offer": ""
+      },
+      "nudlar_orient": {
+        "price": 4.77,
+        "offer": ""
+      },
+      "nudlar_svamp": {
+        "price": 4.77,
+        "offer": ""
+      },
+      "olivolja": {
+        "price": 77.88,
+        "offer": ""
+      },
+      "rapsolja": {
+        "price": 68.13,
+        "offer": ""
+      },
+      "tomatpure": {
+        "price": 24.27,
+        "offer": ""
+      },
+      "kakao": {
+        "price": 38.89,
+        "offer": ""
+      },
+      "bakchoklad": {
+        "price": 39.86,
+        "offer": ""
+      },
+      "senap": {
+        "price": 16.47,
+        "offer": ""
+      },
+      "ketchup": {
+        "price": 32.06,
+        "offer": ""
+      },
+      "sriracha": {
+        "price": 45.71,
+        "offer": ""
+      },
+      "salsa": {
+        "price": 15.49,
+        "offer": ""
+      },
+      "cheddar_dip": {
+        "price": 29.14,
+        "offer": ""
+      },
+      "dressing": {
+        "price": 17.41,
+        "offer": ""
+      },
+      "dressing_jalpeno": {
+        "price": 17.41,
+        "offer": ""
+      },
+      "citron_pressad": {
+        "price": 9.64,
+        "offer": ""
+      },
+      "taco_spice": {
+        "price": 26.21,
+        "offer": ""
+      },
+      "tortilla": {
+        "price": 40.45,
+        "offer": ""
+      },
+      "ljus_sirap": {
+        "price": 15.49,
+        "offer": ""
+      },
+      "crisp_wheat": {
+        "price": 16.08,
+        "offer": ""
+      },
+      "multivitamin": {
+        "price": 20.09,
+        "offer": ""
+      },
+      "polarvete": {
+        "price": 35.97,
+        "offer": ""
+      },
+      "hamburgerbrod": {
+        "price": 32.65,
+        "offer": ""
+      },
+      "korvbrod": {
+        "price": 20.27,
+        "offer": ""
+      },
+      "lingongrova": {
+        "price": 23.56,
+        "offer": ""
+      },
+      "levain": {
+        "price": 36.94,
+        "offer": ""
+      },
+      "skargardskaka": {
+        "price": 30.56,
+        "offer": ""
+      },
+      "orientbrod": {
+        "price": 9.64,
+        "offer": ""
+      },
+      "diskmedel": {
+        "price": 72.0,
+        "offer": ""
+      },
+      "skoljmedel": {
+        "price": 49.34,
+        "offer": ""
+      },
+      "hushallspapper": {
+        "price": 30.8,
+        "offer": ""
+      },
+      "toapapper": {
+        "price": 28.74,
+        "offer": ""
+      },
+      "tvattlapp": {
+        "price": 49.34,
+        "offer": ""
+      },
+      "microfiber": {
+        "price": 30.8,
+        "offer": ""
+      },
+      "rengoring": {
+        "price": 7.11,
+        "offer": ""
+      },
+      "refill_mopp": {
+        "price": 20.5,
+        "offer": ""
+      },
+      "carpet_care": {
+        "price": 61.7,
+        "offer": ""
+      },
+      "avfallspasar": {
+        "price": 20.5,
+        "offer": ""
+      },
+      "pas_frys": {
+        "price": 17.41,
+        "offer": ""
+      },
+      "pappkasse": {
+        "price": 5.05,
+        "offer": ""
+      },
+      "engangshyvlar": {
+        "price": 29.77,
+        "offer": ""
+      },
+      "twister_medium": {
+        "price": 17.41,
+        "offer": ""
+      },
+      "twister_soft": {
+        "price": 17.41,
+        "offer": ""
+      },
+      "mellanrumsborst": {
+        "price": 35.95,
+        "offer": ""
+      },
+      "tandtradsbygel": {
+        "price": 41.1,
+        "offer": ""
+      },
+      "max_fresh": {
+        "price": 20.5,
+        "offer": ""
+      },
+      "dreamlengths_sch": {
+        "price": 38.01,
+        "offer": ""
+      },
+      "dreamlengths_balsam": {
+        "price": 38.01,
+        "offer": ""
+      },
+      "deospray": {
+        "price": 35.95,
+        "offer": ""
+      },
+      "vaselin": {
+        "price": 19.47,
+        "offer": ""
+      },
+      "vatservetter": {
+        "price": 12.26,
+        "offer": ""
+      },
+      "strawb_cream": {
+        "price": 51.56,
+        "offer": ""
+      },
+      "bj_glass": {
+        "price": 60.34,
+        "offer": ""
+      },
+      "almond_cone": {
+        "price": 29.24,
+        "offer": ""
+      },
+      "vanilla_pecan": {
+        "price": 60.34,
+        "offer": ""
+      },
+      "pommes_strips": {
+        "price": 34.99,
+        "offer": ""
+      }
+    },
+    "🟠 Hemköp": {
+      "kycklingfile": {
+        "price": 144.69,
+        "offer": ""
+      },
+      "kycklingkebab": {
+        "price": 72.77,
+        "offer": ""
+      },
+      "kycklingleårfile": {
+        "price": 62.35,
+        "offer": ""
+      },
+      "kycklinginnerfile": {
+        "price": 51.94,
+        "offer": ""
+      },
+      "mjolk": {
+        "price": 20.13,
+        "offer": ""
+      },
+      "smor": {
+        "price": 67.56,
+        "offer": ""
+      },
+      "normalsalt_smor": {
+        "price": 56.65,
+        "offer": ""
+      },
+      "agg": {
+        "price": 65.89,
+        "offer": ""
+      },
+      "grekisk_yoghurt": {
+        "price": 39.45,
+        "offer": ""
+      },
+      "yoghurt": {
+        "price": 31.12,
+        "offer": ""
+      },
+      "yoghurt_vanilj": {
+        "price": 22.55,
+        "offer": ""
+      },
+      "turkisk_yoghurt": {
+        "price": 29.04,
+        "offer": ""
+      },
+      "crunchy_yoghurt": {
+        "price": 34.14,
+        "offer": ""
+      },
+      "min_yoghurt": {
+        "price": 26.96,
+        "offer": ""
+      },
+      "matgradde": {
+        "price": 26.96,
+        "offer": ""
+      },
+      "vispgradde": {
+        "price": 33.21,
+        "offer": ""
+      },
+      "gradde": {
+        "price": 35.91,
+        "offer": ""
+      },
+      "graddfil": {
+        "price": 21.75,
+        "offer": ""
+      },
+      "parmigiano": {
+        "price": 62.35,
+        "offer": ""
+      },
+      "vaniljsas": {
+        "price": 28.0,
+        "offer": ""
+      },
+      "apelsinjuice": {
+        "price": 25.92,
+        "offer": ""
+      },
+      "appeljuice": {
+        "price": 19.69,
+        "offer": ""
+      },
+      "avokado": {
+        "price": 43.89,
+        "offer": ""
+      },
+      "banan": {
+        "price": 35.74,
+        "offer": ""
+      },
+      "citron": {
+        "price": 17.49,
+        "offer": ""
+      },
+      "tomat_baby": {
+        "price": 44.66,
+        "offer": ""
+      },
+      "gurka": {
+        "price": 17.49,
+        "offer": ""
+      },
+      "paprika": {
+        "price": 30.69,
+        "offer": ""
+      },
+      "isbergssallad": {
+        "price": 18.7,
+        "offer": ""
+      },
+      "zucchini": {
+        "price": 10.89,
+        "offer": ""
+      },
+      "potatis": {
+        "price": 21.38,
+        "offer": ""
+      },
+      "gul_lok": {
+        "price": 8.69,
+        "offer": ""
+      },
+      "rod_lok": {
+        "price": 18.59,
+        "offer": ""
+      },
+      "vitlok": {
+        "price": 13.09,
+        "offer": ""
+      },
+      "majskolv": {
+        "price": 24.09,
+        "offer": ""
+      },
+      "kiwi": {
+        "price": 41.36,
+        "offer": ""
+      },
+      "mango": {
+        "price": 22.79,
+        "offer": ""
+      },
+      "blojor": {
+        "price": 135.19,
+        "offer": ""
+      },
+      "nan_pro": {
+        "price": 144.59,
+        "offer": ""
+      },
+      "fruktmums": {
+        "price": 103.99,
+        "offer": ""
+      },
+      "fruktgrot": {
+        "price": 50.9,
+        "offer": ""
+      },
+      "min_yoghurt_barn": {
+        "price": 26.96,
+        "offer": ""
+      },
+      "katrinplommon": {
+        "price": 11.34,
+        "offer": ""
+      },
+      "baby_wash": {
+        "price": 38.39,
+        "offer": ""
+      },
+      "pasta": {
+        "price": 9.26,
+        "offer": ""
+      },
+      "fusilli": {
+        "price": 44.66,
+        "offer": ""
+      },
+      "makaroner": {
+        "price": 15.51,
+        "offer": ""
+      },
+      "bulgur": {
+        "price": 21.75,
+        "offer": ""
+      },
+      "strosocker": {
+        "price": 24.87,
+        "offer": ""
+      },
+      "nudlar_orient": {
+        "price": 5.09,
+        "offer": ""
+      },
+      "nudlar_svamp": {
+        "price": 5.09,
+        "offer": ""
+      },
+      "olivolja": {
+        "price": 83.17,
+        "offer": ""
+      },
+      "rapsolja": {
+        "price": 72.77,
+        "offer": ""
+      },
+      "tomatpure": {
+        "price": 25.92,
+        "offer": ""
+      },
+      "kakao": {
+        "price": 41.54,
+        "offer": ""
+      },
+      "bakchoklad": {
+        "price": 42.57,
+        "offer": ""
+      },
+      "senap": {
+        "price": 17.59,
+        "offer": ""
+      },
+      "ketchup": {
+        "price": 34.24,
+        "offer": ""
+      },
+      "sriracha": {
+        "price": 48.82,
+        "offer": ""
+      },
+      "salsa": {
+        "price": 16.54,
+        "offer": ""
+      },
+      "cheddar_dip": {
+        "price": 31.12,
+        "offer": ""
+      },
+      "dressing": {
+        "price": 18.59,
+        "offer": ""
+      },
+      "dressing_jalpeno": {
+        "price": 18.59,
+        "offer": ""
+      },
+      "citron_pressad": {
+        "price": 10.3,
+        "offer": ""
+      },
+      "taco_spice": {
+        "price": 28.0,
+        "offer": ""
+      },
+      "tortilla": {
+        "price": 43.2,
+        "offer": ""
+      },
+      "ljus_sirap": {
+        "price": 16.54,
+        "offer": ""
+      },
+      "crisp_wheat": {
+        "price": 17.17,
+        "offer": ""
+      },
+      "multivitamin": {
+        "price": 21.45,
+        "offer": ""
+      },
+      "polarvete": {
+        "price": 38.41,
+        "offer": ""
+      },
+      "hamburgerbrod": {
+        "price": 34.87,
+        "offer": ""
+      },
+      "korvbrod": {
+        "price": 21.65,
+        "offer": ""
+      },
+      "lingongrova": {
+        "price": 25.16,
+        "offer": ""
+      },
+      "levain": {
+        "price": 39.45,
+        "offer": ""
+      },
+      "skargardskaka": {
+        "price": 32.64,
+        "offer": ""
+      },
+      "orientbrod": {
+        "price": 10.3,
+        "offer": ""
+      },
+      "diskmedel": {
+        "price": 76.89,
+        "offer": ""
+      },
+      "skoljmedel": {
+        "price": 52.69,
+        "offer": ""
+      },
+      "hushallspapper": {
+        "price": 32.89,
+        "offer": ""
+      },
+      "toapapper": {
+        "price": 30.69,
+        "offer": ""
+      },
+      "tvattlapp": {
+        "price": 52.69,
+        "offer": ""
+      },
+      "microfiber": {
+        "price": 32.89,
+        "offer": ""
+      },
+      "rengoring": {
+        "price": 7.59,
+        "offer": ""
+      },
+      "refill_mopp": {
+        "price": 21.89,
+        "offer": ""
+      },
+      "carpet_care": {
+        "price": 65.89,
+        "offer": ""
+      },
+      "avfallspasar": {
+        "price": 21.89,
+        "offer": ""
+      },
+      "pas_frys": {
+        "price": 18.59,
+        "offer": ""
+      },
+      "pappkasse": {
+        "price": 5.39,
+        "offer": ""
+      },
+      "engangshyvlar": {
+        "price": 31.79,
+        "offer": ""
+      },
+      "twister_medium": {
+        "price": 18.59,
+        "offer": ""
+      },
+      "twister_soft": {
+        "price": 18.59,
+        "offer": ""
+      },
+      "mellanrumsborst": {
+        "price": 38.39,
+        "offer": ""
+      },
+      "tandtradsbygel": {
+        "price": 43.89,
+        "offer": ""
+      },
+      "max_fresh": {
+        "price": 21.89,
+        "offer": ""
+      },
+      "dreamlengths_sch": {
+        "price": 40.59,
+        "offer": ""
+      },
+      "dreamlengths_balsam": {
+        "price": 40.59,
+        "offer": ""
+      },
+      "deospray": {
+        "price": 38.39,
+        "offer": ""
+      },
+      "vaselin": {
+        "price": 20.79,
+        "offer": ""
+      },
+      "vatservetter": {
+        "price": 13.09,
+        "offer": ""
+      },
+      "strawb_cream": {
+        "price": 55.07,
+        "offer": ""
+      },
+      "bj_glass": {
+        "price": 64.44,
+        "offer": ""
+      },
+      "almond_cone": {
+        "price": 31.23,
+        "offer": ""
+      },
+      "vanilla_pecan": {
+        "price": 64.44,
+        "offer": ""
+      },
+      "pommes_strips": {
+        "price": 37.37,
+        "offer": ""
+      }
+    },
+    "🔵 Lidl": {
+      "kycklingfile": {
+        "price": 111.81,
+        "offer": "Veckans fynd"
+      },
+      "kycklingkebab": {
+        "price": 56.23,
+        "offer": ""
+      },
+      "kycklingleårfile": {
+        "price": 48.18,
+        "offer": ""
+      },
+      "kycklinginnerfile": {
+        "price": 40.14,
+        "offer": ""
+      },
+      "mjolk": {
+        "price": 15.55,
+        "offer": ""
+      },
+      "smor": {
+        "price": 52.21,
+        "offer": ""
+      },
+      "normalsalt_smor": {
+        "price": 43.77,
+        "offer": ""
+      },
+      "agg": {
+        "price": 50.91,
+        "offer": ""
+      },
+      "grekisk_yoghurt": {
+        "price": 30.48,
+        "offer": ""
+      },
+      "yoghurt": {
+        "price": 24.05,
+        "offer": ""
+      },
+      "yoghurt_vanilj": {
+        "price": 17.43,
+        "offer": ""
+      },
+      "turkisk_yoghurt": {
+        "price": 22.44,
+        "offer": ""
+      },
+      "crunchy_yoghurt": {
+        "price": 26.38,
+        "offer": ""
+      },
+      "min_yoghurt": {
+        "price": 20.83,
+        "offer": ""
+      },
+      "matgradde": {
+        "price": 20.83,
+        "offer": ""
+      },
+      "vispgradde": {
+        "price": 25.66,
+        "offer": ""
+      },
+      "gradde": {
+        "price": 27.75,
+        "offer": ""
+      },
+      "graddfil": {
+        "price": 16.8,
+        "offer": ""
+      },
+      "parmigiano": {
+        "price": 48.18,
+        "offer": ""
+      },
+      "vaniljsas": {
+        "price": 21.63,
+        "offer": ""
+      },
+      "apelsinjuice": {
+        "price": 20.03,
+        "offer": ""
+      },
+      "appeljuice": {
+        "price": 15.21,
+        "offer": ""
+      },
+      "avokado": {
+        "price": 33.91,
+        "offer": ""
+      },
+      "banan": {
+        "price": 27.62,
+        "offer": ""
+      },
+      "citron": {
+        "price": 13.52,
+        "offer": ""
+      },
+      "tomat_baby": {
+        "price": 34.51,
+        "offer": ""
+      },
+      "gurka": {
+        "price": 13.52,
+        "offer": ""
+      },
+      "paprika": {
+        "price": 23.71,
+        "offer": ""
+      },
+      "isbergssallad": {
+        "price": 14.45,
+        "offer": ""
+      },
+      "zucchini": {
+        "price": 8.42,
+        "offer": ""
+      },
+      "potatis": {
+        "price": 16.52,
+        "offer": ""
+      },
+      "gul_lok": {
+        "price": 6.71,
+        "offer": ""
+      },
+      "rod_lok": {
+        "price": 14.36,
+        "offer": ""
+      },
+      "vitlok": {
+        "price": 10.12,
+        "offer": ""
+      },
+      "majskolv": {
+        "price": 18.61,
+        "offer": ""
+      },
+      "kiwi": {
+        "price": 31.96,
+        "offer": ""
+      },
+      "mango": {
+        "price": 17.61,
+        "offer": ""
+      },
+      "blojor": {
+        "price": 104.47,
+        "offer": ""
+      },
+      "nan_pro": {
+        "price": 111.73,
+        "offer": ""
+      },
+      "fruktmums": {
+        "price": 80.36,
+        "offer": ""
+      },
+      "fruktgrot": {
+        "price": 39.33,
+        "offer": ""
+      },
+      "min_yoghurt_barn": {
+        "price": 20.83,
+        "offer": ""
+      },
+      "katrinplommon": {
+        "price": 8.76,
+        "offer": ""
+      },
+      "baby_wash": {
+        "price": 29.66,
+        "offer": ""
+      },
+      "pasta": {
+        "price": 7.16,
+        "offer": ""
+      },
+      "fusilli": {
+        "price": 34.51,
+        "offer": ""
+      },
+      "makaroner": {
+        "price": 11.98,
+        "offer": ""
+      },
+      "bulgur": {
+        "price": 16.8,
+        "offer": ""
+      },
+      "strosocker": {
+        "price": 19.22,
+        "offer": ""
+      },
+      "nudlar_orient": {
+        "price": 3.94,
+        "offer": ""
+      },
+      "nudlar_svamp": {
+        "price": 3.94,
+        "offer": ""
+      },
+      "olivolja": {
+        "price": 64.27,
+        "offer": ""
+      },
+      "rapsolja": {
+        "price": 56.23,
+        "offer": ""
+      },
+      "tomatpure": {
+        "price": 20.03,
+        "offer": ""
+      },
+      "kakao": {
+        "price": 32.1,
+        "offer": ""
+      },
+      "bakchoklad": {
+        "price": 32.9,
+        "offer": ""
+      },
+      "senap": {
+        "price": 13.59,
+        "offer": ""
+      },
+      "ketchup": {
+        "price": 26.46,
+        "offer": ""
+      },
+      "sriracha": {
+        "price": 37.72,
+        "offer": ""
+      },
+      "salsa": {
+        "price": 12.78,
+        "offer": ""
+      },
+      "cheddar_dip": {
+        "price": 24.05,
+        "offer": ""
+      },
+      "dressing": {
+        "price": 14.36,
+        "offer": ""
+      },
+      "dressing_jalpeno": {
+        "price": 14.36,
+        "offer": ""
+      },
+      "citron_pressad": {
+        "price": 7.96,
+        "offer": ""
+      },
+      "taco_spice": {
+        "price": 21.63,
+        "offer": ""
+      },
+      "tortilla": {
+        "price": 33.38,
+        "offer": ""
+      },
+      "ljus_sirap": {
+        "price": 12.78,
+        "offer": ""
+      },
+      "crisp_wheat": {
+        "price": 13.27,
+        "offer": ""
+      },
+      "multivitamin": {
+        "price": 16.57,
+        "offer": ""
+      },
+      "polarvete": {
+        "price": 29.68,
+        "offer": ""
+      },
+      "hamburgerbrod": {
+        "price": 26.95,
+        "offer": ""
+      },
+      "korvbrod": {
+        "price": 16.73,
+        "offer": ""
+      },
+      "lingongrova": {
+        "price": 19.44,
+        "offer": ""
+      },
+      "levain": {
+        "price": 30.48,
+        "offer": ""
+      },
+      "skargardskaka": {
+        "price": 25.22,
+        "offer": ""
+      },
+      "orientbrod": {
+        "price": 7.96,
+        "offer": ""
+      },
+      "diskmedel": {
+        "price": 59.42,
+        "offer": ""
+      },
+      "skoljmedel": {
+        "price": 40.71,
+        "offer": ""
+      },
+      "hushallspapper": {
+        "price": 25.41,
+        "offer": ""
+      },
+      "toapapper": {
+        "price": 23.71,
+        "offer": ""
+      },
+      "tvattlapp": {
+        "price": 40.71,
+        "offer": ""
+      },
+      "microfiber": {
+        "price": 25.41,
+        "offer": ""
+      },
+      "rengoring": {
+        "price": 5.87,
+        "offer": ""
+      },
+      "refill_mopp": {
+        "price": 16.91,
+        "offer": ""
+      },
+      "carpet_care": {
+        "price": 50.91,
+        "offer": ""
+      },
+      "avfallspasar": {
+        "price": 16.91,
+        "offer": ""
+      },
+      "pas_frys": {
+        "price": 14.36,
+        "offer": ""
+      },
+      "pappkasse": {
+        "price": 4.17,
+        "offer": ""
+      },
+      "engangshyvlar": {
+        "price": 24.56,
+        "offer": ""
+      },
+      "twister_medium": {
+        "price": 14.36,
+        "offer": ""
+      },
+      "twister_soft": {
+        "price": 14.36,
+        "offer": ""
+      },
+      "mellanrumsborst": {
+        "price": 29.66,
+        "offer": ""
+      },
+      "tandtradsbygel": {
+        "price": 33.91,
+        "offer": ""
+      },
+      "max_fresh": {
+        "price": 16.91,
+        "offer": ""
+      },
+      "dreamlengths_sch": {
+        "price": 31.36,
+        "offer": ""
+      },
+      "dreamlengths_balsam": {
+        "price": 31.36,
+        "offer": ""
+      },
+      "deospray": {
+        "price": 29.66,
+        "offer": ""
+      },
+      "vaselin": {
+        "price": 16.06,
+        "offer": ""
+      },
+      "vatservetter": {
+        "price": 10.12,
+        "offer": ""
+      },
+      "strawb_cream": {
+        "price": 42.55,
+        "offer": ""
+      },
+      "bj_glass": {
+        "price": 49.79,
+        "offer": ""
+      },
+      "almond_cone": {
+        "price": 24.13,
+        "offer": ""
+      },
+      "vanilla_pecan": {
+        "price": 49.79,
+        "offer": ""
+      },
+      "pommes_strips": {
+        "price": 28.87,
+        "offer": ""
+      }
+    },
+    "⚫ City Gross": {
+      "kycklingfile": {
+        "price": 138.12,
+        "offer": ""
+      },
+      "kycklingkebab": {
+        "price": 69.46,
+        "offer": ""
+      },
+      "kycklingleårfile": {
+        "price": 59.51,
+        "offer": ""
+      },
+      "kycklinginnerfile": {
+        "price": 49.58,
+        "offer": ""
+      },
+      "mjolk": {
+        "price": 19.21,
+        "offer": ""
+      },
+      "smor": {
+        "price": 64.49,
+        "offer": ""
+      },
+      "normalsalt_smor": {
+        "price": 54.08,
+        "offer": ""
+      },
+      "agg": {
+        "price": 62.9,
+        "offer": ""
+      },
+      "grekisk_yoghurt": {
+        "price": 37.65,
+        "offer": ""
+      },
+      "yoghurt": {
+        "price": 29.7,
+        "offer": ""
+      },
+      "yoghurt_vanilj": {
+        "price": 21.53,
+        "offer": ""
+      },
+      "turkisk_yoghurt": {
+        "price": 27.72,
+        "offer": ""
+      },
+      "crunchy_yoghurt": {
+        "price": 32.59,
+        "offer": ""
+      },
+      "min_yoghurt": {
+        "price": 25.74,
+        "offer": ""
+      },
+      "matgradde": {
+        "price": 25.74,
+        "offer": ""
+      },
+      "vispgradde": {
+        "price": 31.7,
+        "offer": ""
+      },
+      "gradde": {
+        "price": 34.28,
+        "offer": ""
+      },
+      "graddfil": {
+        "price": 20.76,
+        "offer": ""
+      },
+      "parmigiano": {
+        "price": 59.51,
+        "offer": ""
+      },
+      "vaniljsas": {
+        "price": 26.72,
+        "offer": ""
+      },
+      "apelsinjuice": {
+        "price": 24.74,
+        "offer": ""
+      },
+      "appeljuice": {
+        "price": 18.79,
+        "offer": ""
+      },
+      "avokado": {
+        "price": 41.9,
+        "offer": ""
+      },
+      "banan": {
+        "price": 34.11,
+        "offer": ""
+      },
+      "citron": {
+        "price": 16.7,
+        "offer": ""
+      },
+      "tomat_baby": {
+        "price": 42.63,
+        "offer": ""
+      },
+      "gurka": {
+        "price": 16.7,
+        "offer": ""
+      },
+      "paprika": {
+        "price": 29.29,
+        "offer": ""
+      },
+      "isbergssallad": {
+        "price": 17.85,
+        "offer": ""
+      },
+      "zucchini": {
+        "price": 10.4,
+        "offer": ""
+      },
+      "potatis": {
+        "price": 20.41,
+        "offer": ""
+      },
+      "gul_lok": {
+        "price": 8.29,
+        "offer": ""
+      },
+      "rod_lok": {
+        "price": 17.75,
+        "offer": ""
+      },
+      "vitlok": {
+        "price": 12.5,
+        "offer": ""
+      },
+      "majskolv": {
+        "price": 23.0,
+        "offer": ""
+      },
+      "kiwi": {
+        "price": 39.48,
+        "offer": ""
+      },
+      "mango": {
+        "price": 21.76,
+        "offer": ""
+      },
+      "blojor": {
+        "price": 129.05,
+        "offer": ""
+      },
+      "nan_pro": {
+        "price": 138.02,
+        "offer": ""
+      },
+      "fruktmums": {
+        "price": 99.27,
+        "offer": ""
+      },
+      "fruktgrot": {
+        "price": 48.58,
+        "offer": ""
+      },
+      "min_yoghurt_barn": {
+        "price": 25.74,
+        "offer": ""
+      },
+      "katrinplommon": {
+        "price": 10.83,
+        "offer": ""
+      },
+      "baby_wash": {
+        "price": 36.65,
+        "offer": ""
+      },
+      "pasta": {
+        "price": 8.84,
+        "offer": ""
+      },
+      "fusilli": {
+        "price": 42.63,
+        "offer": ""
+      },
+      "makaroner": {
+        "price": 14.8,
+        "offer": ""
+      },
+      "bulgur": {
+        "price": 20.76,
+        "offer": ""
+      },
+      "strosocker": {
+        "price": 23.74,
+        "offer": ""
+      },
+      "nudlar_orient": {
+        "price": 4.86,
+        "offer": ""
+      },
+      "nudlar_svamp": {
+        "price": 4.86,
+        "offer": ""
+      },
+      "olivolja": {
+        "price": 79.39,
+        "offer": ""
+      },
+      "rapsolja": {
+        "price": 69.46,
+        "offer": ""
+      },
+      "tomatpure": {
+        "price": 24.74,
+        "offer": ""
+      },
+      "kakao": {
+        "price": 39.65,
+        "offer": ""
+      },
+      "bakchoklad": {
+        "price": 40.64,
+        "offer": ""
+      },
+      "senap": {
+        "price": 16.79,
+        "offer": ""
+      },
+      "ketchup": {
+        "price": 32.69,
+        "offer": ""
+      },
+      "sriracha": {
+        "price": 46.6,
+        "offer": ""
+      },
+      "salsa": {
+        "price": 15.79,
+        "offer": ""
+      },
+      "cheddar_dip": {
+        "price": 29.7,
+        "offer": ""
+      },
+      "dressing": {
+        "price": 17.75,
+        "offer": ""
+      },
+      "dressing_jalpeno": {
+        "price": 17.75,
+        "offer": ""
+      },
+      "citron_pressad": {
+        "price": 9.83,
+        "offer": ""
+      },
+      "taco_spice": {
+        "price": 26.72,
+        "offer": ""
+      },
+      "tortilla": {
+        "price": 41.23,
+        "offer": ""
+      },
+      "ljus_sirap": {
+        "price": 15.79,
+        "offer": ""
+      },
+      "crisp_wheat": {
+        "price": 16.39,
+        "offer": ""
+      },
+      "multivitamin": {
+        "price": 20.48,
+        "offer": ""
+      },
+      "polarvete": {
+        "price": 36.67,
+        "offer": ""
+      },
+      "hamburgerbrod": {
+        "price": 33.29,
+        "offer": ""
+      },
+      "korvbrod": {
+        "price": 20.66,
+        "offer": ""
+      },
+      "lingongrova": {
+        "price": 24.01,
+        "offer": ""
+      },
+      "levain": {
+        "price": 37.65,
+        "offer": ""
+      },
+      "skargardskaka": {
+        "price": 31.15,
+        "offer": ""
+      },
+      "orientbrod": {
+        "price": 9.83,
+        "offer": ""
+      },
+      "diskmedel": {
+        "price": 73.4,
+        "offer": ""
+      },
+      "skoljmedel": {
+        "price": 50.3,
+        "offer": ""
+      },
+      "hushallspapper": {
+        "price": 31.39,
+        "offer": ""
+      },
+      "toapapper": {
+        "price": 29.29,
+        "offer": ""
+      },
+      "tvattlapp": {
+        "price": 50.3,
+        "offer": ""
+      },
+      "microfiber": {
+        "price": 31.39,
+        "offer": ""
+      },
+      "rengoring": {
+        "price": 7.25,
+        "offer": ""
+      },
+      "refill_mopp": {
+        "price": 20.89,
+        "offer": ""
+      },
+      "carpet_care": {
+        "price": 62.9,
+        "offer": ""
+      },
+      "avfallspasar": {
+        "price": 20.89,
+        "offer": ""
+      },
+      "pas_frys": {
+        "price": 17.75,
+        "offer": ""
+      },
+      "pappkasse": {
+        "price": 5.15,
+        "offer": ""
+      },
+      "engangshyvlar": {
+        "price": 30.34,
+        "offer": ""
+      },
+      "twister_medium": {
+        "price": 17.75,
+        "offer": ""
+      },
+      "twister_soft": {
+        "price": 17.75,
+        "offer": ""
+      },
+      "mellanrumsborst": {
+        "price": 36.65,
+        "offer": ""
+      },
+      "tandtradsbygel": {
+        "price": 41.9,
+        "offer": ""
+      },
+      "max_fresh": {
+        "price": 20.89,
+        "offer": ""
+      },
+      "dreamlengths_sch": {
+        "price": 38.74,
+        "offer": ""
+      },
+      "dreamlengths_balsam": {
+        "price": 38.74,
+        "offer": ""
+      },
+      "deospray": {
+        "price": 36.65,
+        "offer": ""
+      },
+      "vaselin": {
+        "price": 19.84,
+        "offer": ""
+      },
+      "vatservetter": {
+        "price": 12.5,
+        "offer": ""
+      },
+      "strawb_cream": {
+        "price": 52.56,
+        "offer": ""
+      },
+      "bj_glass": {
+        "price": 61.51,
+        "offer": ""
+      },
+      "almond_cone": {
+        "price": 29.81,
+        "offer": ""
+      },
+      "vanilla_pecan": {
+        "price": 61.51,
+        "offer": ""
+      },
+      "pommes_strips": {
+        "price": 35.67,
+        "offer": ""
+      }
+    },
+    "🟣 Mathem": {
+      "kycklingfile": {
+        "price": 151.27,
+        "offer": ""
+      },
+      "kycklingkebab": {
+        "price": 76.07,
+        "offer": ""
+      },
+      "kycklingleårfile": {
+        "price": 65.18,
+        "offer": ""
+      },
+      "kycklinginnerfile": {
+        "price": 54.3,
+        "offer": ""
+      },
+      "mjolk": {
+        "price": 21.04,
+        "offer": ""
+      },
+      "smor": {
+        "price": 70.63,
+        "offer": ""
+      },
+      "normalsalt_smor": {
+        "price": 59.22,
+        "offer": ""
+      },
+      "agg": {
+        "price": 68.88,
+        "offer": ""
+      },
+      "grekisk_yoghurt": {
+        "price": 41.24,
+        "offer": ""
+      },
+      "yoghurt": {
+        "price": 32.53,
+        "offer": ""
+      },
+      "yoghurt_vanilj": {
+        "price": 23.57,
+        "offer": ""
+      },
+      "turkisk_yoghurt": {
+        "price": 30.36,
+        "offer": ""
+      },
+      "crunchy_yoghurt": {
+        "price": 35.7,
+        "offer": ""
+      },
+      "min_yoghurt": {
+        "price": 28.19,
+        "offer": ""
+      },
+      "matgradde": {
+        "price": 28.19,
+        "offer": ""
+      },
+      "vispgradde": {
+        "price": 34.72,
+        "offer": ""
+      },
+      "gradde": {
+        "price": 37.55,
+        "offer": ""
+      },
+      "graddfil": {
+        "price": 22.74,
+        "offer": ""
+      },
+      "parmigiano": {
+        "price": 65.18,
+        "offer": ""
+      },
+      "vaniljsas": {
+        "price": 29.27,
+        "offer": ""
+      },
+      "apelsinjuice": {
+        "price": 27.09,
+        "offer": ""
+      },
+      "appeljuice": {
+        "price": 20.58,
+        "offer": ""
+      },
+      "avokado": {
+        "price": 45.88,
+        "offer": ""
+      },
+      "banan": {
+        "price": 37.36,
+        "offer": ""
+      },
+      "citron": {
+        "price": 18.29,
+        "offer": ""
+      },
+      "tomat_baby": {
+        "price": 46.69,
+        "offer": ""
+      },
+      "gurka": {
+        "price": 18.29,
+        "offer": ""
+      },
+      "paprika": {
+        "price": 32.08,
+        "offer": ""
+      },
+      "isbergssallad": {
+        "price": 19.55,
+        "offer": ""
+      },
+      "zucchini": {
+        "price": 11.38,
+        "offer": ""
+      },
+      "potatis": {
+        "price": 22.36,
+        "offer": ""
+      },
+      "gul_lok": {
+        "price": 9.08,
+        "offer": ""
+      },
+      "rod_lok": {
+        "price": 19.43,
+        "offer": ""
+      },
+      "vitlok": {
+        "price": 13.68,
+        "offer": ""
+      },
+      "majskolv": {
+        "price": 25.18,
+        "offer": ""
+      },
+      "kiwi": {
+        "price": 43.24,
+        "offer": ""
+      },
+      "mango": {
+        "price": 23.83,
+        "offer": ""
+      },
+      "blojor": {
+        "price": 141.34,
+        "offer": ""
+      },
+      "nan_pro": {
+        "price": 151.17,
+        "offer": "Fri frakt på blöjor & modersmjölk"
+      },
+      "fruktmums": {
+        "price": 108.72,
+        "offer": ""
+      },
+      "fruktgrot": {
+        "price": 53.21,
+        "offer": ""
+      },
+      "min_yoghurt_barn": {
+        "price": 28.19,
+        "offer": ""
+      },
+      "katrinplommon": {
+        "price": 11.86,
+        "offer": ""
+      },
+      "baby_wash": {
+        "price": 40.13,
+        "offer": ""
+      },
+      "pasta": {
+        "price": 9.68,
+        "offer": ""
+      },
+      "fusilli": {
+        "price": 46.69,
+        "offer": ""
+      },
+      "makaroner": {
+        "price": 16.21,
+        "offer": ""
+      },
+      "bulgur": {
+        "price": 22.74,
+        "offer": ""
+      },
+      "strosocker": {
+        "price": 26.0,
+        "offer": ""
+      },
+      "nudlar_orient": {
+        "price": 5.32,
+        "offer": ""
+      },
+      "nudlar_svamp": {
+        "price": 5.32,
+        "offer": ""
+      },
+      "olivolja": {
+        "price": 86.95,
+        "offer": ""
+      },
+      "rapsolja": {
+        "price": 76.07,
+        "offer": ""
+      },
+      "tomatpure": {
+        "price": 27.09,
+        "offer": ""
+      },
+      "kakao": {
+        "price": 43.42,
+        "offer": ""
+      },
+      "bakchoklad": {
+        "price": 44.51,
+        "offer": ""
+      },
+      "senap": {
+        "price": 18.39,
+        "offer": ""
+      },
+      "ketchup": {
+        "price": 35.8,
+        "offer": ""
+      },
+      "sriracha": {
+        "price": 51.04,
+        "offer": ""
+      },
+      "salsa": {
+        "price": 17.3,
+        "offer": ""
+      },
+      "cheddar_dip": {
+        "price": 32.53,
+        "offer": ""
+      },
+      "dressing": {
+        "price": 19.43,
+        "offer": ""
+      },
+      "dressing_jalpeno": {
+        "price": 19.43,
+        "offer": ""
+      },
+      "citron_pressad": {
+        "price": 10.76,
+        "offer": ""
+      },
+      "taco_spice": {
+        "price": 29.27,
+        "offer": ""
+      },
+      "tortilla": {
+        "price": 45.16,
+        "offer": ""
+      },
+      "ljus_sirap": {
+        "price": 17.3,
+        "offer": ""
+      },
+      "crisp_wheat": {
+        "price": 17.95,
+        "offer": ""
+      },
+      "multivitamin": {
+        "price": 22.42,
+        "offer": ""
+      },
+      "polarvete": {
+        "price": 40.16,
+        "offer": ""
+      },
+      "hamburgerbrod": {
+        "price": 36.45,
+        "offer": ""
+      },
+      "korvbrod": {
+        "price": 22.63,
+        "offer": ""
+      },
+      "lingongrova": {
+        "price": 26.3,
+        "offer": ""
+      },
+      "levain": {
+        "price": 41.24,
+        "offer": ""
+      },
+      "skargardskaka": {
+        "price": 34.12,
+        "offer": ""
+      },
+      "orientbrod": {
+        "price": 10.76,
+        "offer": ""
+      },
+      "diskmedel": {
+        "price": 80.39,
+        "offer": ""
+      },
+      "skoljmedel": {
+        "price": 55.08,
+        "offer": ""
+      },
+      "hushallspapper": {
+        "price": 34.38,
+        "offer": ""
+      },
+      "toapapper": {
+        "price": 32.08,
+        "offer": ""
+      },
+      "tvattlapp": {
+        "price": 55.08,
+        "offer": ""
+      },
+      "microfiber": {
+        "price": 34.38,
+        "offer": ""
+      },
+      "rengoring": {
+        "price": 7.93,
+        "offer": ""
+      },
+      "refill_mopp": {
+        "price": 22.88,
+        "offer": ""
+      },
+      "carpet_care": {
+        "price": 68.88,
+        "offer": ""
+      },
+      "avfallspasar": {
+        "price": 22.88,
+        "offer": ""
+      },
+      "pas_frys": {
+        "price": 19.43,
+        "offer": ""
+      },
+      "pappkasse": {
+        "price": 5.63,
+        "offer": ""
+      },
+      "engangshyvlar": {
+        "price": 33.23,
+        "offer": ""
+      },
+      "twister_medium": {
+        "price": 19.43,
+        "offer": ""
+      },
+      "twister_soft": {
+        "price": 19.43,
+        "offer": ""
+      },
+      "mellanrumsborst": {
+        "price": 40.13,
+        "offer": ""
+      },
+      "tandtradsbygel": {
+        "price": 45.88,
+        "offer": ""
+      },
+      "max_fresh": {
+        "price": 22.88,
+        "offer": ""
+      },
+      "dreamlengths_sch": {
+        "price": 42.43,
+        "offer": ""
+      },
+      "dreamlengths_balsam": {
+        "price": 42.43,
+        "offer": ""
+      },
+      "deospray": {
+        "price": 40.13,
+        "offer": ""
+      },
+      "vaselin": {
+        "price": 21.73,
+        "offer": ""
+      },
+      "vatservetter": {
+        "price": 13.68,
+        "offer": ""
+      },
+      "strawb_cream": {
+        "price": 57.57,
+        "offer": ""
+      },
+      "bj_glass": {
+        "price": 67.37,
+        "offer": ""
+      },
+      "almond_cone": {
+        "price": 32.65,
+        "offer": ""
+      },
+      "vanilla_pecan": {
+        "price": 67.37,
+        "offer": ""
+      },
+      "pommes_strips": {
+        "price": 39.07,
+        "offer": ""
+      }
+    }
+  }
+}

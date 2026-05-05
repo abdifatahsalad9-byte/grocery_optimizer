@@ -1,30 +1,53 @@
-"""
-Willys-skraper – redo att byggas ut med riktig web-scraping.
-
-Kräver: pip install requests beautifulsoup4 playwright
-Notera: Willys blockerar ibland automatiska förfrågningar.
-Alternativ: Använd Matpriskollen API om tillgängligt.
-"""
 import requests
-from bs4 import BeautifulSoup
 from .base_scraper import BaseScraper, PriceResult
+
+SEARCH_URL = "https://www.willys.se/search?q={query}&searchType=PRODUCT"
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+    "Accept": "application/json, text/plain, */*",
+    "Referer": "https://www.willys.se/",
+}
 
 
 class WillysScraper(BaseScraper):
-    BASE_URL = "https://www.willys.se/search?q={query}&type=RECIPE_CONTEXT"
 
     def __init__(self):
-        super().__init__("Willys")
+        super().__init__("willys")
         self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": "Mozilla/5.0 (compatible; GroceryOptimizer/1.0)"
-        })
+        self.session.headers.update(HEADERS)
+
+    def search(self, query: str) -> list[dict]:
+        url = SEARCH_URL.format(query=requests.utils.quote(query))
+        try:
+            r = self.session.get(url, timeout=10)
+            r.raise_for_status()
+            return r.json().get("results", [])
+        except Exception:
+            return []
 
     def get_price(self, product_id: str, product_name: str) -> PriceResult | None:
-        # TODO: Implementera riktig scraping här
-        # url = self.BASE_URL.format(query=product_name)
-        # response = self.session.get(url, timeout=10)
-        # soup = BeautifulSoup(response.text, "html.parser")
-        # price_tag = soup.select_one(".price")  # Anpassa CSS-selector
-        # ...
-        raise NotImplementedError("WillysScraper är inte implementerad ännu – använd MockScraper")
+        results = self.search(product_name)
+        if not results:
+            return None
+        product = results[0]
+        price = product.get("priceValue")
+        if price is None:
+            return None
+        promotions = product.get("potentialPromotions", [])
+        offer = promotions[0].get("header", "") if promotions else ""
+        return PriceResult(
+            product_id=product_id,
+            product_name=product.get("name", product_name),
+            store="willys",
+            price=float(price),
+            unit=product.get("priceUnit", "st"),
+            offer=offer,
+        )
+
+    def get_image_url(self, product_name: str) -> str | None:
+        results = self.search(product_name)
+        if not results:
+            return None
+        image = results[0].get("image", {})
+        return image.get("url") if image else None
