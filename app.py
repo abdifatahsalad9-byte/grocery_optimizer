@@ -121,7 +121,7 @@ st.markdown("""
     background: #fff;
     border: 1px solid #e8e8e8;
     border-radius: 14px;
-    padding: 10px 8px 8px 8px;
+    padding: 10px 10px 8px 10px;
     margin-bottom: 4px;
     text-align: center;
     position: relative;
@@ -130,6 +130,9 @@ st.markdown("""
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
   }
   .product-card:hover {
     box-shadow: 0 4px 18px rgba(0,0,0,0.12);
@@ -144,12 +147,12 @@ st.markdown("""
     flex-shrink: 0;
   }
   .product-img-wrap img {
-    max-height: 120px;
-    max-width: 100%;
+    max-height: 115px;
+    max-width: 90%;
     object-fit: contain;
   }
   .product-name {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: #222;
     font-weight: 500;
     line-height: 1.3;
@@ -160,10 +163,12 @@ st.markdown("""
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     flex-shrink: 0;
+    word-break: break-word;
+    padding: 0 2px;
   }
   .product-price {
     color: #e3000b;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 800;
     margin-top: auto;
     padding-top: 4px;
@@ -219,6 +224,18 @@ st.markdown("""
   div[data-testid="stHorizontalBlock"] {
     flex-wrap: nowrap !important;
     gap: 8px;
+  }
+
+  /* Säkerställ att kolumnerna inte flödar utanför */
+  div[data-testid="stColumn"] {
+    min-width: 0 !important;
+    overflow: hidden;
+  }
+
+  /* Lite mer luft på mobil */
+  .block-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 
   /* Knappar */
