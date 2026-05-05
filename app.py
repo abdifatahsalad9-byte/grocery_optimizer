@@ -204,23 +204,30 @@ with st.sidebar:
         """, unsafe_allow_html=True)
 
         # Varor i korgen
+        all_products_flat = {
+            p["id"]: p
+            for prods in products_data["categories"].values()
+            for p in prods
+        }
         for pid, info in list(st.session_state.cart.items()):
-            col1, col2, col3, col4 = st.columns([4, 1, 1, 1])
-            with col1:
-                st.markdown(f"""
-                <div class="cart-item-name">{info['emoji']} {info['name']}</div>
-                """, unsafe_allow_html=True)
-            with col2:
+            product    = all_products_flat.get(pid, {})
+            image_path = product.get("image")
+
+            col_img, col_name, col_minus, col_qty, col_plus = st.columns([1.2, 3.5, 0.8, 0.8, 0.8])
+            with col_img:
+                if image_path and Path(image_path).exists():
+                    st.image(image_path, use_container_width=True)
+                else:
+                    st.markdown(f"<div style='font-size:1.8rem;text-align:center'>{info['emoji']}</div>", unsafe_allow_html=True)
+            with col_name:
+                st.markdown(f"<div class='cart-item-name' style='padding-top:8px'>{info['name']}</div>", unsafe_allow_html=True)
+            with col_minus:
                 if st.button("−", key=f"minus_{pid}"):
                     change_qty(pid, -1)
                     st.rerun()
-            with col3:
-                st.markdown(f"""
-                <div style="text-align:center;padding-top:6px;font-weight:700">
-                  {info['qty']}
-                </div>
-                """, unsafe_allow_html=True)
-            with col4:
+            with col_qty:
+                st.markdown(f"<div style='text-align:center;padding-top:6px;font-weight:700'>{info['qty']}</div>", unsafe_allow_html=True)
+            with col_plus:
                 if st.button("＋", key=f"plus_{pid}"):
                     change_qty(pid, 1)
                     st.rerun()
