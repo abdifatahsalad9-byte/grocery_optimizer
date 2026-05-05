@@ -1,0 +1,44 @@
+{
+  "categories": {
+    "Kött & Fisk": [
+      {"id": "kycklingfile", "name": "Kycklingfilé 1kg", "emoji": "🍗", "unit": "kg"},
+      {"id": "farserad_kyckling", "name": "Farserad Kyckling", "emoji": "🍗", "unit": "st"},
+      {"id": "notfars", "name": "Nötfärs 500g", "emoji": "🥩", "unit": "förp"},
+      {"id": "lax", "name": "Laxfilé 400g", "emoji": "🐟", "unit": "förp"},
+      {"id": "korv", "name": "Prinskorv", "emoji": "🌭", "unit": "förp"}
+    ],
+    "Mejeri": [
+      {"id": "mjolk", "name": "Mjölk 1.5L", "emoji": "🥛", "unit": "L"},
+      {"id": "smor", "name": "Smör 500g", "emoji": "🧈", "unit": "förp"},
+      {"id": "yoghurt", "name": "Yoghurt Naturell", "emoji": "🍶", "unit": "förp"},
+      {"id": "ost", "name": "Ost 500g", "emoji": "🧀", "unit": "förp"},
+      {"id": "agg", "name": "Ägg 12-pack", "emoji": "🥚", "unit": "förp"}
+    ],
+    "Frukt & Grönt": [
+      {"id": "banan", "name": "Bananer 1kg", "emoji": "🍌", "unit": "kg"},
+      {"id": "tomat", "name": "Tomater 500g", "emoji": "🍅", "unit": "förp"},
+      {"id": "gurka", "name": "Gurka", "emoji": "🥒", "unit": "st"},
+      {"id": "paprika", "name": "Paprika 3-pack", "emoji": "🫑", "unit": "förp"},
+      {"id": "potatis", "name": "Potatis 2kg", "emoji": "🥔", "unit": "kg"}
+    ],
+    "Barn": [
+      {"id": "blojor", "name": "Blöjor Stl 4", "emoji": "👶", "unit": "förp"},
+      {"id": "barnmat", "name": "Barnmat Semper", "emoji": "🍼", "unit": "st"},
+      {"id": "barnmat_kyckling", "name": "Barnmat Kyckling", "emoji": "🍼", "unit": "st"},
+      {"id": "vetegrot", "name": "Vetegröt", "emoji": "🥣", "unit": "förp"},
+      {"id": "barnflingor", "name": "Barnflingor", "emoji": "🥣", "unit": "förp"}
+    ],
+    "Skafferi": [
+      {"id": "pasta", "name": "Pasta 500g", "emoji": "🍝", "unit": "förp"},
+      {"id": "ris", "name": "Ris 1kg", "emoji": "🍚", "unit": "kg"},
+      {"id": "mjol", "name": "Vetemjöl 2kg", "emoji": "🌾", "unit": "kg"},
+      {"id": "olja", "name": "Rapsolja 1L", "emoji": "🫙", "unit": "L"},
+      {"id": "tomatkross", "name": "Tomatkross 400g", "emoji": "🥫", "unit": "förp"}
+    ],
+    "Bröd & Flingor": [
+      {"id": "brod", "name": "Formfranska", "emoji": "🍞", "unit": "st"},
+      {"id": "knackebrod", "name": "Knäckebröd", "emoji": "🫓", "unit": "förp"},
+      {"id": "havregryn", "name": "Havregryn 500g", "emoji": "🥣", "unit": "förp"}
+    ]
+  }
+}
