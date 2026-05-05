@@ -1,0 +1,11 @@
+{
+  "stores": [
+    {"id": "willys",    "name": "Willys",      "emoji": "🟡"},
+    {"id": "ica",       "name": "ICA",         "emoji": "🔴"},
+    {"id": "coop",      "name": "Coop",        "emoji": "🟢"},
+    {"id": "hemkop",    "name": "Hemköp",      "emoji": "🟠"},
+    {"id": "lidl",      "name": "Lidl",        "emoji": "🔵"},
+    {"id": "citygross", "name": "City Gross",  "emoji": "⚫"},
+    {"id": "mathem",    "name": "Mathem",      "emoji": "🟣"}
+  ]
+}

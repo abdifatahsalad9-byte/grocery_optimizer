@@ -9,11 +9,17 @@ from scraper.mock_scraper import MockScraper
 # ── Konfiguration ──────────────────────────────────────────────────────────────
 DATA_DIR = Path(__file__).parent / "data"
 PRODUCTS_FILE = DATA_DIR / "products.json"
+STORES_FILE   = DATA_DIR / "stores.json"
 
-STORES = {
-    "🟡 Willys": MockScraper("willys"),
-    "🔴 ICA":    MockScraper("ica"),
-}
+def load_stores() -> dict:
+    with open(STORES_FILE, encoding="utf-8") as f:
+        data = json.load(f)
+    return {
+        f"{s['emoji']} {s['name']}": MockScraper(s["id"])
+        for s in data["stores"]
+    }
+
+STORES = load_stores()
 
 # ── Hjälpfunktioner ────────────────────────────────────────────────────────────
 
