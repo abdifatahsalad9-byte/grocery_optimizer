@@ -4,21 +4,24 @@ from .base_scraper import BaseScraper, PriceResult
 
 SEARCH_URL = "https://www.coop.se/handla/sok/?q={query}"
 
+# Lösvikt säljs per kg och har orealistiskt höga priser — filtrera bort
+_MAX_PRICE = 500
+
 
 class CoopScraper(BaseScraper):
 
     def __init__(self):
         super().__init__("coop")
-        self._pw = None
+        self._pw      = None
         self._browser = None
-        self._ctx = None
+        self._ctx     = None
 
     def _start(self):
         if self._browser:
             return
-        self._pw = sync_playwright().start()
+        self._pw      = sync_playwright().start()
         self._browser = self._pw.chromium.launch(headless=True)
-        self._ctx = self._browser.new_context(
+        self._ctx     = self._browser.new_context(
             user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             locale="sv-SE",
         )
@@ -32,8 +35,8 @@ class CoopScraper(BaseScraper):
         except Exception:
             pass
         self._browser = None
-        self._pw = None
-        self._ctx = None
+        self._pw      = None
+        self._ctx     = None
 
     def search(self, query: str) -> list[dict]:
         self._start()
@@ -43,7 +46,7 @@ class CoopScraper(BaseScraper):
             def on_resp(r):
                 if "personalization/search/products" in r.url and r.status == 200:
                     try:
-                        data = r.json()
+                        data  = r.json()
                         items = data.get("results", {}).get("items", [])
                         results.extend(items)
                     except Exception:
@@ -58,11 +61,28 @@ class CoopScraper(BaseScraper):
             page.close()
         return results
 
+    def _best_match(self, results: list[dict], query: str) -> dict | None:
+        query_words = set(query.lower().split())
+        best, best_score = None, -1
+        for prod in results:
+            price = prod.get("salesPriceData", {}).get("b2cPrice", 0)
+            # Hoppa över lösviktsprodukter (orealistiskt dyra)
+            if price and float(price) > _MAX_PRICE:
+                continue
+            name  = (prod.get("name") or "").lower()
+            score = sum(1 for w in query_words if w in name)
+            if score > best_score:
+                best_score = score
+                best = prod
+        return best if best_score > 0 else None
+
     def get_price(self, product_id: str, product_name: str) -> PriceResult | None:
         results = self.search(product_name)
         if not results:
             return None
-        product = results[0]
+        product = self._best_match(results, product_name)
+        if not product:
+            return None
         price = product.get("salesPriceData", {}).get("b2cPrice")
         if price is None:
             return None

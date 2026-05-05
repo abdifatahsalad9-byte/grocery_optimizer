@@ -159,16 +159,26 @@ class ICAScraper(BaseScraper):
 
         return products
 
+    # Ord som tyder på marinerat/specialvariant — undviks om de inte finns i sökordet
+    _AVOID = {"bbq", "marinerad", "kryddad", "grillad", "färdig", "fryst", "rökt"}
+
     def _best_match(self, results: list[dict], query: str) -> dict | None:
-        query_words = set(query.lower().split())
+        query_words  = set(query.lower().split())
+        query_avoid  = self._AVOID - query_words  # undvik dessa om de inte efterfrågas
         best, best_score = None, -1
+
         for prod in results:
-            name = (prod.get("name") or "").lower()
-            score = sum(1 for w in query_words if w in name)
+            name       = (prod.get("name") or "").lower()
+            name_words = set(name.split())
+            match  = sum(1 for w in query_words if w in name)
+            # Sänk poängen om produkten innehåller undvikta ord
+            penalty = sum(1 for w in query_avoid if w in name)
+            score   = match - penalty * 0.5
             if score > best_score:
                 best_score = score
                 best = prod
-        return best if best_score > 0 else (results[0] if results else None)
+
+        return best if best and best_score > 0 else (results[0] if results else None)
 
     def get_price(self, product_id: str, product_name: str) -> PriceResult | None:
         if not self._session_exists():
