@@ -92,13 +92,15 @@ def render_product_grid(products: list[dict], store_emoji: str):
         row   = products[row_start : row_start + cols_per_row]
         cols  = st.columns(cols_per_row)
         for j, prod in enumerate(row):
-            pid       = make_id(prod["name"])
-            exists    = already_exists(pid)
-            img_url   = prod.get("image_url")
-            price     = prod.get("price", 0)
+            idx     = row_start + j          # unikt index för varje produkt
+            pid     = make_id(prod["name"])
+            exists  = already_exists(pid)
+            img_url = prod.get("image_url")
+            price   = prod.get("price", 0)
+            # Unikt prefix för alla widget-nycklar
+            k = f"{store_emoji}_{idx}"
 
             with cols[j]:
-                # Bild
                 if img_url:
                     st.markdown(img_tag(img_url), unsafe_allow_html=True)
 
@@ -111,12 +113,12 @@ def render_product_grid(products: list[dict], store_emoji: str):
                 else:
                     with st.expander("➕ Importera"):
                         cat = st.selectbox("Kategori", categories + ["➕ Ny"],
-                                           key=f"cat_{store_emoji}_{pid}")
+                                           key=f"cat_{k}")
                         if cat == "➕ Ny":
-                            cat = st.text_input("Ny kategori", key=f"newcat_{store_emoji}_{pid}")
-                        emoji = st.selectbox("Emoji", emojis, key=f"emo_{store_emoji}_{pid}")
+                            cat = st.text_input("Ny kategori", key=f"newcat_{k}")
+                        emoji = st.selectbox("Emoji", emojis, key=f"emo_{k}")
 
-                        if st.button("Importera", key=f"imp_{store_emoji}_{pid}",
+                        if st.button("Importera", key=f"imp_{k}",
                                      type="primary", use_container_width=True):
                             if cat:
                                 import_product(prod["name"], pid, emoji, cat, img_url)
