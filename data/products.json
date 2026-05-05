@@ -63,7 +63,8 @@
         "id": "smor",
         "name": "Smör NS 500g",
         "emoji": "🧈",
-        "unit": "förp"
+        "unit": "förp",
+        "image": "static/images/smor.jpg"
       },
       {
         "id": "normalsalt_smor",
@@ -76,7 +77,8 @@
         "id": "agg",
         "name": "Ägg M 24P Frigående",
         "emoji": "🥚",
-        "unit": "förp"
+        "unit": "förp",
+        "image": "static/images/agg.jpg"
       },
       {
         "id": "grekisk_yoghurt",

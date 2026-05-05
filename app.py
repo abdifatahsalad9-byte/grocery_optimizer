@@ -6,6 +6,8 @@ import streamlit as st
 import pandas as pd
 
 from scraper.mock_scraper import MockScraper
+from scraper.willys_scraper import WillysScraper
+from scraper.hemkop_scraper import HemkopScraper
 from scraper.price_cache import fetch_prices, load_cache, last_updated_text
 
 
@@ -21,13 +23,19 @@ PRODUCTS_FILE = DATA_DIR / "products.json"
 STORES_FILE   = DATA_DIR / "stores.json"
 
 
+REAL_SCRAPERS = {
+    "willys": WillysScraper(),
+    "hemkop": HemkopScraper(),
+}
+
 def load_stores() -> dict:
     with open(STORES_FILE, encoding="utf-8") as f:
         data = json.load(f)
-    return {
-        f"{s['emoji']} {s['name']}": MockScraper(s["id"])
-        for s in data["stores"]
-    }
+    stores = {}
+    for s in data["stores"]:
+        key = f"{s['emoji']} {s['name']}"
+        stores[key] = REAL_SCRAPERS.get(s["id"], MockScraper(s["id"]))
+    return stores
 
 
 def load_products() -> dict:
