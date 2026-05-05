@@ -93,7 +93,7 @@ st.title("➕ Hantera varor")
 products_data = load_products()
 categories    = list(products_data["categories"].keys())
 
-tab1, tab2, tab3 = st.tabs(["Lägg till vara", "Ändra bild", "Ta bort vara"])
+tab1, tab2, tab3, tab4 = st.tabs(["Lägg till vara", "Ändra bild", "Ta bort vara", "Sortera varor"])
 
 # ── Tab 1: Lägg till vara ──────────────────────────────────────────────────────
 with tab1:
@@ -226,3 +226,59 @@ with tab3:
             st.rerun()
     else:
         st.info("Inga varor i den här kategorin.")
+
+# ── Tab 4: Sortera varor ───────────────────────────────────────────────────────
+with tab4:
+    st.subheader("Sortera varor")
+    st.caption("Flytta varor upp/ner inom en kategori, eller flytta till en annan kategori.")
+
+    sort_category = st.selectbox("Välj kategori", categories, key="sort_cat")
+    cat_products  = products_data["categories"].get(sort_category, [])
+
+    if not cat_products:
+        st.info("Inga varor i den här kategorin.")
+    else:
+        for i, product in enumerate(cat_products):
+            img   = product.get("image")
+            col_img, col_name, col_up, col_down, col_move = st.columns([0.8, 4, 0.7, 0.7, 2])
+
+            with col_img:
+                if img and Path(img).exists():
+                    st.image(img, use_container_width=True)
+                else:
+                    st.markdown(f"<div style='font-size:1.6rem;text-align:center'>{product['emoji']}</div>", unsafe_allow_html=True)
+
+            with col_name:
+                st.markdown(f"<div style='padding-top:10px;font-weight:500'>{product['name']}</div>", unsafe_allow_html=True)
+
+            with col_up:
+                if i > 0 and st.button("↑", key=f"up_{product['id']}"):
+                    lst = products_data["categories"][sort_category]
+                    lst[i], lst[i - 1] = lst[i - 1], lst[i]
+                    save_products(products_data)
+                    st.rerun()
+
+            with col_down:
+                if i < len(cat_products) - 1 and st.button("↓", key=f"down_{product['id']}"):
+                    lst = products_data["categories"][sort_category]
+                    lst[i], lst[i + 1] = lst[i + 1], lst[i]
+                    save_products(products_data)
+                    st.rerun()
+
+            with col_move:
+                other_cats = [c for c in categories if c != sort_category]
+                new_cat = st.selectbox(
+                    "Flytta till",
+                    ["— välj —"] + other_cats,
+                    key=f"move_{product['id']}",
+                    label_visibility="collapsed",
+                )
+                if new_cat != "— välj —":
+                    products_data["categories"][sort_category].remove(product)
+                    products_data["categories"][new_cat].append(product)
+                    save_products(products_data)
+                    st.success(f"✅ Flyttad till {new_cat}!")
+                    time.sleep(0.5)
+                    st.rerun()
+
+            st.divider()

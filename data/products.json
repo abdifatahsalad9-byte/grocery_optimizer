@@ -160,6 +160,13 @@
         "emoji": "🍏",
         "unit": "L",
         "image": "static/images/appeljuice.jpg"
+      },
+      {
+        "id": "mjolk_langre_hallbarhet_3",
+        "name": "Mjölk Längre Hållbarhet 3%",
+        "emoji": "🍗",
+        "unit": "förp",
+        "image": "static/images/mjolk_langre_hallbarhet_3.jpg"
       }
     ],
     "Frukt & Grönt": [
