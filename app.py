@@ -135,9 +135,12 @@ def compare_prices(prices: dict) -> tuple[pd.DataFrame, dict]:
             if pid in store_prices:
                 unit_price = store_prices[pid]["price"]
                 offer      = store_prices[pid]["offer"]
+                is_real    = store_prices[pid].get("is_real", True)
                 total      = unit_price * info["qty"]
                 store_totals[store_name] += total
                 label = f"{unit_price:.2f} kr"
+                if not is_real:
+                    label += " ~"
                 if offer:
                     label += f"\n💥 {offer}"
                 row[store_name] = label
@@ -450,6 +453,7 @@ for category, products in products_data["categories"].items():
 if st.session_state.get("show_comparison") and st.session_state.cart:
     st.divider()
     st.header("📊 Prisjämförelse")
+    st.caption("Priser utan markering = riktiga. **~** = uppskattad (butiken har inget riktigt API ännu)")
 
     # Använd live-priser om de finns, annars cachade
     prices_to_use = st.session_state.get("live_prices", st.session_state.prices)

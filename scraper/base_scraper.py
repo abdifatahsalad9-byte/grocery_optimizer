@@ -9,7 +9,8 @@ class PriceResult:
     store: str
     price: float
     unit: str
-    offer: str = ""  # t.ex. "2 för 30 kr"
+    offer: str  = ""    # t.ex. "2 för 30 kr"
+    is_real: bool = True  # False = uppskattad/mock-pris
 
 
 class BaseScraper(ABC):

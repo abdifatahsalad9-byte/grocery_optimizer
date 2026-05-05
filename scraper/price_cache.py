@@ -49,8 +49,9 @@ def fetch_prices(stores: dict, products_data: dict) -> dict:
                 result = scraper.get_price(product["id"], product["name"])
                 if result:
                     prices[store_key][product["id"]] = {
-                        "price": result.price,
-                        "offer": result.offer,
+                        "price":   result.price,
+                        "offer":   result.offer,
+                        "is_real": result.is_real,
                     }
             except Exception:
                 pass

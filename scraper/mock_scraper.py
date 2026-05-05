@@ -173,4 +173,5 @@ class MockScraper(BaseScraper):
             price=price,
             unit="st",
             offer=offer,
+            is_real=False,
         )
