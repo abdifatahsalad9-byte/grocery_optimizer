@@ -28,6 +28,12 @@
         "emoji": "🍗",
         "unit": "förp",
         "image": "static/images/kycklinginnerfile.jpg"
+      },
+      {
+        "id": "kyckling_file_fryst",
+        "name": "Kyckling Filé Fryst",
+        "emoji": "🍗",
+        "unit": "kg"
       }
     ],
     "Mejeri & Kyl": [

@@ -15,11 +15,11 @@ HEADERS = {
     "Referer": "https://www.willys.se/",
 }
 
-UNITS    = ["förp", "kg", "st", "L"]
-EMOJIS   = ["🍗","🥩","🐟","🌭","🥛","🧈","🥚","🧀","🍶","🥑","🍌","🍋","🍅",
-             "🥒","🫑","🥬","🥔","🧅","🧄","🌽","🥝","🥭","👶","🍼","🥣","🍝",
-             "🍚","🌾","🫙","🥫","🍯","🧃","🍞","🫓","🧴","🧻","🧽","🪒","🪥",
-             "🗑️","🛍️","🍦","🍟","🍫","🌮","🟡","🟥","🌶️","🍊","🍏"]
+UNITS  = ["förp", "kg", "st", "L"]
+EMOJIS = ["🍗","🥩","🐟","🌭","🥛","🧈","🥚","🧀","🍶","🥑","🍌","🍋","🍅",
+          "🥒","🫑","🥬","🥔","🧅","🧄","🌽","🥝","🥭","👶","🍼","🥣","🍝",
+          "🍚","🌾","🫙","🥫","🍯","🧃","🍞","🫓","🧴","🧻","🧽","🪒","🪥",
+          "🗑️","🛍️","🍦","🍟","🍫","🌮","🟡","🟥","🌶️","🍊","🍏"]
 
 
 def load_products() -> dict:
@@ -60,6 +60,32 @@ def make_id(name: str) -> str:
     return "".join(c for c in result if c.isalnum() or c == "_").strip("_")
 
 
+def show_image_picker(results: list[dict], key: str) -> dict | None:
+    """Visar bilder som klickbara knappar. Returnerar vald produkt."""
+    if not results:
+        return None
+
+    selected_key = f"{key}_selected"
+    if selected_key not in st.session_state:
+        st.session_state[selected_key] = 0
+
+    st.markdown("**Välj rätt bild:**")
+    cols = st.columns(min(len(results[:6]), 6))
+
+    for i, product in enumerate(results[:6]):
+        img_url = product.get("image", {}).get("url")
+        with cols[i]:
+            if img_url:
+                st.image(img_url, use_container_width=True)
+            label = "✅ Vald" if st.session_state[selected_key] == i else f"Välj {i+1}"
+            if st.button(label, key=f"{key}_btn_{i}", use_container_width=True):
+                st.session_state[selected_key] = i
+                st.rerun()
+            st.caption(product.get("name","")[:25])
+
+    return results[st.session_state[selected_key]]
+
+
 # ── Layout ─────────────────────────────────────────────────────────────────────
 st.set_page_config(page_title="Hantera varor", page_icon="➕", layout="wide")
 st.title("➕ Hantera varor")
@@ -73,8 +99,7 @@ tab1, tab2, tab3 = st.tabs(["Lägg till vara", "Ändra bild", "Ta bort vara"])
 with tab1:
     st.subheader("Lägg till ny vara")
 
-    col1, col2 = st.columns(2)
-
+    col1, col2 = st.columns([1, 2])
     with col1:
         name     = st.text_input("Varunamn *", placeholder="t.ex. Havregryn 500g")
         category = st.selectbox("Kategori *", categories + ["➕ Ny kategori"])
@@ -82,88 +107,63 @@ with tab1:
             category = st.text_input("Namn på ny kategori")
         unit  = st.selectbox("Enhet", UNITS)
         emoji = st.selectbox("Emoji", EMOJIS)
+        query = st.text_input("Sökord på Willys", placeholder="lämna tomt = använd varunamnet")
+
+        if st.button("🔍 Sök bild på Willys", use_container_width=True, disabled=not name):
+            with st.spinner("Söker..."):
+                results = search_willys(query if query else name)
+            st.session_state.add_results = results
+            st.session_state.pop("add_selected", None)
 
     with col2:
-        st.markdown("**Förhandsgranska bild från Willys**")
-        query = st.text_input("Sökord (lämna tomt för att använda varunamnet)", placeholder="t.ex. havregryn 500g")
+        if "add_results" in st.session_state:
+            selected = show_image_picker(st.session_state.add_results, "add")
 
-        if name:
-            search_query = query if query else name
-            if st.button("🔍 Sök bild", use_container_width=True):
-                with st.spinner("Söker på Willys..."):
-                    results = search_willys(search_query)
-                st.session_state.search_results = results
-                st.session_state.selected_idx   = 0
-
-        if "search_results" in st.session_state and st.session_state.search_results:
-            results = st.session_state.search_results
-            options = [f"{i+1}. {r.get('name','?')}" for i, r in enumerate(results[:6])]
-            chosen  = st.radio("Välj rätt produkt:", options, index=st.session_state.selected_idx)
-            st.session_state.selected_idx = options.index(chosen)
-
-            selected = results[st.session_state.selected_idx]
-            img_url  = selected.get("image", {}).get("url")
-            if img_url:
-                st.image(img_url, width=150)
-                st.caption(selected.get("name"))
-
-    st.divider()
-
-    if st.button("✅ Lägg till vara", type="primary", use_container_width=True):
-        if not name or not category:
-            st.error("Fyll i varunamn och kategori.")
-        else:
-            pid = make_id(name)
-
-            # Kolla om id redan finns
-            all_ids = [p["id"] for prods in products_data["categories"].values() for p in prods]
-            if pid in all_ids:
-                st.error(f"En vara med id '{pid}' finns redan.")
-            else:
-                # Ladda ner bild
-                image_path = None
-                if "search_results" in st.session_state and st.session_state.search_results:
-                    selected = st.session_state.search_results[st.session_state.get("selected_idx", 0)]
-                    img_url  = selected.get("image", {}).get("url")
-                    if img_url:
-                        dest = IMAGES_DIR / f"{pid}.jpg"
-                        if download_image(img_url, dest):
-                            image_path = str(dest)
-
-                # Bygg produkt
-                new_product = {"id": pid, "name": name, "emoji": emoji, "unit": unit}
-                if image_path:
-                    new_product["image"] = image_path
-
-                # Lägg till i rätt kategori
-                if category not in products_data["categories"]:
-                    products_data["categories"][category] = []
-                products_data["categories"][category].append(new_product)
-                save_products(products_data)
-
-                st.success(f"✅ '{name}' är tillagd under {category}!")
-                if image_path:
-                    st.image(image_path, width=150)
+            st.divider()
+            if st.button("✅ Lägg till vara", type="primary", use_container_width=True):
+                if not name or not category:
+                    st.error("Fyll i varunamn och kategori.")
                 else:
-                    st.info("Ingen bild hittades — emoji används istället.")
+                    pid     = make_id(name)
+                    all_ids = [p["id"] for prods in products_data["categories"].values() for p in prods]
 
-                # Rensa sökresultat
-                st.session_state.pop("search_results", None)
-                time.sleep(1)
-                st.rerun()
+                    if pid in all_ids:
+                        st.error(f"'{name}' finns redan.")
+                    else:
+                        image_path = None
+                        if selected:
+                            img_url = selected.get("image", {}).get("url")
+                            if img_url:
+                                dest = IMAGES_DIR / f"{pid}.jpg"
+                                if download_image(img_url, dest):
+                                    image_path = str(dest)
+
+                        new_product = {"id": pid, "name": name, "emoji": emoji, "unit": unit}
+                        if image_path:
+                            new_product["image"] = image_path
+
+                        if category not in products_data["categories"]:
+                            products_data["categories"][category] = []
+                        products_data["categories"][category].append(new_product)
+                        save_products(products_data)
+
+                        st.success(f"✅ '{name}' tillagd!")
+                        st.session_state.pop("add_results", None)
+                        time.sleep(1)
+                        st.rerun()
+        else:
+            st.info("Skriv ett varunamn och tryck 'Sök bild' för att komma igång.")
 
 # ── Tab 2: Ändra bild ─────────────────────────────────────────────────────────
 with tab2:
     st.subheader("Ändra bild på en vara")
 
-    all_products = [
-        p for prods in products_data["categories"].values() for p in prods
-    ]
+    all_products  = [p for prods in products_data["categories"].values() for p in prods]
     product_names = [f"{p['emoji']} {p['name']}" for p in all_products]
     chosen_name   = st.selectbox("Välj vara", product_names)
     chosen        = all_products[product_names.index(chosen_name)]
 
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([1, 2])
     with col1:
         st.markdown("**Nuvarande bild**")
         img = chosen.get("image")
@@ -172,57 +172,51 @@ with tab2:
         else:
             st.write(chosen["emoji"])
 
-    with col2:
-        st.markdown("**Ny bild**")
-        fix_query = st.text_input("Sökord", value=chosen["name"], key="fix_query")
-        if st.button("🔍 Sök", key="fix_search"):
+        fix_query = st.text_input("Sökord", value=chosen["name"])
+        if st.button("🔍 Sök ny bild", use_container_width=True):
             with st.spinner("Söker..."):
                 results = search_willys(fix_query)
             st.session_state.fix_results = results
-            st.session_state.fix_idx     = 0
+            st.session_state.pop("fix_selected", None)
 
-        if "fix_results" in st.session_state and st.session_state.fix_results:
-            results  = st.session_state.fix_results
-            options  = [f"{i+1}. {r.get('name','?')}" for i, r in enumerate(results[:6])]
-            chosen_r = st.radio("Välj:", options, index=st.session_state.fix_idx, key="fix_radio")
-            st.session_state.fix_idx = options.index(chosen_r)
+    with col2:
+        if "fix_results" in st.session_state:
+            selected = show_image_picker(st.session_state.fix_results, "fix")
 
-            selected = results[st.session_state.fix_idx]
-            img_url  = selected.get("image", {}).get("url")
-            if img_url:
-                st.image(img_url, width=150)
-
-            if st.button("💾 Spara ny bild", type="primary"):
-                dest = IMAGES_DIR / f"{chosen['id']}.jpg"
-                if download_image(img_url, dest):
-                    # Uppdatera products.json
-                    for prods in products_data["categories"].values():
-                        for p in prods:
-                            if p["id"] == chosen["id"]:
-                                p["image"] = str(dest)
-                    save_products(products_data)
-                    st.success("✅ Bild sparad!")
-                    st.session_state.pop("fix_results", None)
-                    time.sleep(1)
-                    st.rerun()
+            st.divider()
+            if st.button("💾 Spara ny bild", type="primary", use_container_width=True):
+                img_url = selected.get("image", {}).get("url") if selected else None
+                if img_url:
+                    dest = IMAGES_DIR / f"{chosen['id']}.jpg"
+                    if download_image(img_url, dest):
+                        for prods in products_data["categories"].values():
+                            for p in prods:
+                                if p["id"] == chosen["id"]:
+                                    p["image"] = str(dest)
+                        save_products(products_data)
+                        st.success("✅ Bild sparad!")
+                        st.session_state.pop("fix_results", None)
+                        time.sleep(1)
+                        st.rerun()
 
 # ── Tab 3: Ta bort vara ────────────────────────────────────────────────────────
 with tab3:
     st.subheader("Ta bort vara")
 
-    del_category = st.selectbox("Kategori", categories, key="del_cat")
+    del_category = st.selectbox("Kategori", categories)
     cat_products = products_data["categories"].get(del_category, [])
 
     if cat_products:
         del_names  = [f"{p['emoji']} {p['name']}" for p in cat_products]
-        del_chosen = st.selectbox("Vara att ta bort", del_names)
+        del_chosen = st.selectbox("Välj vara", del_names)
         del_prod   = cat_products[del_names.index(del_chosen)]
 
         img = del_prod.get("image")
         if img and Path(img).exists():
-            st.image(img, width=100)
+            st.image(img, width=120)
 
-        if st.button("🗑️ Ta bort", type="primary"):
+        st.warning(f"Är du säker på att du vill ta bort **{del_prod['name']}**?")
+        if st.button("🗑️ Ja, ta bort", type="primary"):
             products_data["categories"][del_category] = [
                 p for p in cat_products if p["id"] != del_prod["id"]
             ]
