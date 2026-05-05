@@ -108,11 +108,60 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+  /* Produktknappar */
   .stButton button {
-    border-radius: 10px;
+    border-radius: 12px;
   }
-  div[data-testid="stSidebar"] .stButton button {
-    font-size: 1.1rem;
+
+  /* Korgens varurad */
+  .cart-item {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cart-item-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1a1a2e;
+  }
+  .cart-item-qty {
+    background: #e8f4fd;
+    color: #1565c0;
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .cart-total-box {
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+    border-radius: 14px;
+    padding: 14px 16px;
+    color: white;
+    text-align: center;
+    margin: 10px 0;
+  }
+  .cart-total-label {
+    font-size: 0.8rem;
+    opacity: 0.85;
+    margin-bottom: 2px;
+  }
+  .cart-total-amount {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+  .cart-empty {
+    text-align: center;
+    padding: 30px 10px;
+    color: #888;
+  }
+  .cart-empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
   }
 </style>
 """, unsafe_allow_html=True)
@@ -126,40 +175,75 @@ if "prices" not in st.session_state:
 
 # ── Sidopanel: Kundkorg ────────────────────────────────────────────────────────
 with st.sidebar:
-    st.title("🛒 Din korg")
-
-    # Prisstatus + uppdateringsknapp
+    st.markdown("## 🛒 Din korg")
     st.caption(f"🕐 {last_updated_text()}")
-    if st.button("🔄 Uppdatera priser", use_container_width=True):
-        with st.spinner("Hämtar priser från alla butiker..."):
-            st.session_state.prices = get_prices(force_refresh=True)
-        st.success("Priser uppdaterade!")
-        st.rerun()
-
-    st.divider()
 
     if not st.session_state.cart:
-        st.info("Korgen är tom.\nTryck på varor till höger för att lägga till.")
+        st.markdown("""
+        <div class="cart-empty">
+          <div class="cart-empty-icon">🛒</div>
+          <div>Korgen är tom</div>
+          <div style="font-size:0.8rem;margin-top:4px;color:#aaa">Tryck på varor för att lägga till</div>
+        </div>
+        """, unsafe_allow_html=True)
     else:
+        # Räkna ut korgtotal från Willys-priser
+        willys_prices = st.session_state.prices.get("🟡 Willys", {})
+        cart_total = sum(
+            willys_prices.get(pid, {}).get("price", 0) * info["qty"]
+            for pid, info in st.session_state.cart.items()
+        )
+        n_items = sum(info["qty"] for info in st.session_state.cart.values())
+
+        # Total-box
+        st.markdown(f"""
+        <div class="cart-total-box">
+          <div class="cart-total-label">{n_items} varor (Willys-pris)</div>
+          <div class="cart-total-amount">{cart_total:.0f} kr</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Varor i korgen
         for pid, info in list(st.session_state.cart.items()):
-            col1, col2, col3 = st.columns([3, 1, 1])
+            col1, col2, col3, col4 = st.columns([4, 1, 1, 1])
             with col1:
-                st.write(f"{info['emoji']} {info['name']}")
+                st.markdown(f"""
+                <div class="cart-item-name">{info['emoji']} {info['name']}</div>
+                """, unsafe_allow_html=True)
             with col2:
-                st.write(f"×{info['qty']}")
+                if st.button("−", key=f"minus_{pid}"):
+                    change_qty(pid, -1)
+                    st.rerun()
             with col3:
-                if st.button("🗑", key=f"del_{pid}"):
-                    remove_from_cart(pid)
+                st.markdown(f"""
+                <div style="text-align:center;padding-top:6px;font-weight:700">
+                  {info['qty']}
+                </div>
+                """, unsafe_allow_html=True)
+            with col4:
+                if st.button("＋", key=f"plus_{pid}"):
+                    change_qty(pid, 1)
                     st.rerun()
 
         st.divider()
-        if st.button("🗑️ Töm korgen", use_container_width=True):
-            st.session_state.cart = {}
-            st.rerun()
 
-        st.divider()
-        if st.button("📊 Jämför priser", type="primary", use_container_width=True):
-            st.session_state.show_comparison = True
+        col_a, col_b = st.columns(2)
+        with col_a:
+            if st.button("🗑️ Töm", use_container_width=True):
+                st.session_state.cart = {}
+                st.rerun()
+        with col_b:
+            if st.button("🔄 Priser", use_container_width=True):
+                with st.spinner("Hämtar..."):
+                    st.session_state.prices = get_prices(force_refresh=True)
+                st.rerun()
+
+        st.button(
+            "📊 Jämför priser i alla butiker",
+            type="primary",
+            use_container_width=True,
+            on_click=lambda: st.session_state.update(show_comparison=True),
+        )
 
 # ── Huvudvy: Produktkatalog ────────────────────────────────────────────────────
 st.title("🛒 Matinköp")
